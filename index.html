@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P. Sandhya Priyanka | Lead Product Manager & Senior Business Analyst Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        accent: {
+                            emerald: '#10b981',
+                            teal: '#14b8a6',
+                            rose: '#f43f5e',
+                            amber: '#f59e0b'
+                        }
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 40px -15px rgba(0, 0, 0, 0.05)',
+                        'premium-dark': '0 20px 40px -15px rgba(0, 0, 0, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            position: relative;
+        }
+        .gradient-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.5px;
+            background: linear-gradient(135deg, #4f46e5, #10b981);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 antialiased overflow-x-hidden font-sans">
+
+    <!-- Sticky Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20 glass-card rounded-2xl mt-4 px-6 shadow-sm">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-600 to-accent-emerald flex items-center justify-center text-white font-extrabold text-lg shadow-md shadow-primary-500/20">
+                        SP
+                    </div>
+                    <div>
+                        <span class="font-bold text-slate-900 dark:text-white tracking-tight text-base sm:text-lg block leading-tight">Sandhya Priyanka</span>
+                        <span class="text-[10px] text-primary-600 dark:text-accent-emerald font-semibold uppercase tracking-wider block">Lead PM & Senior BA</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#hero" class="text-sm font-medium hover:text-primary-600 dark:hover:text-accent-emerald transition-colors">Overview</a>
+                    <a href="#metrics" class="text-sm font-medium hover:text-primary-600 dark:hover:text-accent-emerald transition-colors">KPI Dashboard</a>
+                    <a href="#playbook" class="text-sm font-medium hover:text-primary-600 dark:hover:text-accent-emerald transition-colors">PM Frameworks</a>
+                    <a href="#projects" class="text-sm font-medium hover:text-primary-600 dark:hover:text-accent-emerald transition-colors">Case Studies</a>
+                    <a href="#skills" class="text-sm font-medium hover:text-primary-600 dark:hover:text-accent-emerald transition-colors">Skill Hub</a>
+                    <a href="#experience" class="text-sm font-medium hover:text-primary-600 dark:hover:text-accent-emerald transition-colors">Journey</a>
+                </nav>
+
+                <!-- Right Utility Actions -->
+                <div class="flex items-center space-x-3">
+                    <!-- Light/Dark Toggle -->
+                    <button id="theme-toggle" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-slate-400 focus:outline-none" aria-label="Toggle Theme">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <!-- Download Resume Interactive simulated -->
+                    <button onclick="triggerResumeDownload()" class="hidden sm:inline-flex items-center space-x-2 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold text-xs md:text-sm px-4 py-2.5 rounded-xl transition-all shadow-md shadow-primary-500/10 hover:shadow-lg hover:shadow-primary-500/20 active:scale-95">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span>Download CV</span>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="p-2.5 md:hidden rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-slate-400" aria-label="Toggle Navigation">
+                        <i data-lucide="menu" class="w-5 h-5 block" id="menu-icon-open"></i>
+                        <i data-lucide="x" class="w-5 h-5 hidden" id="menu-icon-close"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-24 left-4 right-4 z-40 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-xl transition-all">
+            <nav class="flex flex-col space-y-4">
+                <a href="#hero" onclick="toggleMobileMenu()" class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600">Overview</a>
+                <a href="#metrics" onclick="toggleMobileMenu()" class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600">KPI Dashboard</a>
+                <a href="#playbook" onclick="toggleMobileMenu()" class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600">PM Frameworks</a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600">Case Studies</a>
+                <a href="#skills" onclick="toggleMobileMenu()" class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600">Skills Hub</a>
+                <a href="#experience" onclick="toggleMobileMenu()" class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600">Journey</a>
+                <hr class="border-slate-100 dark:border-slate-800">
+                <button onclick="triggerResumeDownload(); toggleMobileMenu();" class="w-full flex items-center justify-center space-x-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold py-3 rounded-xl">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span>Download CV</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content wrapper -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16 space-y-24 sm:space-y-36">
+
+        <!-- Custom Feedback Popups / Notification Container (No native browser alert constraint) -->
+        <div id="toast-container" class="fixed top-6 right-6 z-[100] flex flex-col space-y-3 pointer-events-none"></div>
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="relative">
+            <!-- Decorative Tech Background Grid Pattern & Blobs -->
+            <div class="absolute inset-0 -z-10 overflow-hidden opacity-30 dark:opacity-20 pointer-events-none">
+                <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary-500/30 blur-3xl"></div>
+                <div class="absolute top-1/2 -left-40 w-96 h-96 rounded-full bg-accent-emerald/20 blur-3xl"></div>
+                <svg class="absolute inset-0 w-full h-full stroke-slate-200 dark:stroke-slate-800 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+                    <defs>
+                        <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse" x="50%">
+                            <path d="M.5 40V.5H40" fill="none" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                </svg>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Hero Text Grid -->
+                <div class="lg:col-span-7 space-y-8 text-left">
+                    <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-500/10 to-accent-emerald/10 border border-primary-500/20 rounded-full px-4 py-1.5 text-xs sm:text-sm font-semibold text-primary-600 dark:text-accent-emerald">
+                        <span class="w-2 h-2 rounded-full bg-accent-emerald animate-pulse"></span>
+                        <span>Available for Lead PM / Strategic Business Analyst Opportunities</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight sm:leading-none">
+                            Bridging Technical <br class="hidden sm:inline" />
+                            <span class="gradient-text">Complexity & Business</span> Value
+                        </h1>
+                        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl font-normal leading-relaxed">
+                            Hello! I am <strong class="text-slate-900 dark:text-white font-semibold">P. Sandhya Priyanka</strong>, a certified IT-Business Analyst and Senior Product Strategist. I combine 3.11+ years of high-performance enterprise BA/PM consulting experience with over 5 years of rich technical and academic leadership to construct impactful products.
+                        </p>
+                    </div>
+
+                    <!-- Highlight Badges -->
+                    <div class="grid grid-cols-3 gap-3 max-w-lg">
+                        <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 text-center">
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-primary-600 dark:text-accent-emerald">8.9+</span>
+                            <span class="block text-[10px] sm:text-xs font-medium text-slate-500 uppercase tracking-wide mt-1">Years Total Journey</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 text-center">
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-primary-600 dark:text-accent-emerald">3.11</span>
+                            <span class="block text-[10px] sm:text-xs font-medium text-slate-500 uppercase tracking-wide mt-1">PM/BA Practice</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 text-center">
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-primary-600 dark:text-accent-emerald">100%</span>
+                            <span class="block text-[10px] sm:text-xs font-medium text-slate-500 uppercase tracking-wide mt-1">UAT Success Rate</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#projects" class="inline-flex items-center justify-center space-x-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold px-6 py-3.5 rounded-xl hover:bg-primary-600 dark:hover:bg-accent-emerald dark:hover:text-slate-950 transition-all shadow-lg shadow-slate-950/10 active:scale-98 text-sm">
+                            <span>Explore Case Studies</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#contact" class="inline-flex items-center justify-center space-x-2 border border-slate-300 dark:border-slate-800 hover:border-primary-500/40 bg-white/50 dark:bg-slate-900/50 hover:bg-white dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 font-semibold px-6 py-3.5 rounded-xl transition-all text-sm">
+                            <span>Get in Touch</span>
+                            <i data-lucide="message-square" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Interactive Hero Dashboard Model (Visual Representation of PM metrics) -->
+                <div class="lg:col-span-5 relative w-full flex items-center justify-center">
+                    <div class="w-full max-w-md relative p-1 rounded-2xl bg-gradient-to-tr from-primary-500 to-accent-emerald shadow-2xl">
+                        <div class="bg-slate-950 rounded-2xl p-6 text-white space-y-6">
+                            <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                                    <span class="w-3 h-3 rounded-full bg-accent-emerald"></span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-400">pm_metrics_v2.json</span>
+                            </div>
+
+                            <!-- Animated Console Grid -->
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center text-xs text-slate-400">
+                                    <span>Product Prioritization Method</span>
+                                    <span class="text-accent-emerald font-mono font-bold">MoSCoW / FURPS</span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-gradient-to-r from-primary-500 to-accent-emerald h-full w-[88%] rounded-full"></div>
+                                </div>
+
+                                <div class="space-y-2 pt-2">
+                                    <div class="text-xs text-slate-400">Key Execution Strengths:</div>
+                                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                                        <div class="p-2 rounded bg-slate-900/80 border border-white/5 flex items-center space-x-2">
+                                            <i data-lucide="check" class="w-3.5 h-3.5 text-accent-emerald"></i>
+                                            <span>User Story Specs</span>
+                                        </div>
+                                        <div class="p-2 rounded bg-slate-900/80 border border-white/5 flex items-center space-x-2">
+                                            <i data-lucide="check" class="w-3.5 h-3.5 text-accent-emerald"></i>
+                                            <span>UAT Test Plans</span>
+                                        </div>
+                                        <div class="p-2 rounded bg-slate-900/80 border border-white/5 flex items-center space-x-2">
+                                            <i data-lucide="check" class="w-3.5 h-3.5 text-accent-emerald"></i>
+                                            <span>RACI / BCD Design</span>
+                                        </div>
+                                        <div class="p-2 rounded bg-slate-900/80 border border-white/5 flex items-center space-x-2">
+                                            <i data-lucide="check" class="w-3.5 h-3.5 text-accent-emerald"></i>
+                                            <span>Agile Burn-Downs</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- IIBA Badge -->
+                                <div class="pt-2 border-t border-white/10 flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-6 h-6 rounded bg-accent-emerald/15 flex items-center justify-center">
+                                            <i data-lucide="award" class="w-4 h-4 text-accent-emerald"></i>
+                                        </div>
+                                        <span class="text-[11px] font-semibold text-slate-300">Certified IT-Business Analyst</span>
+                                    </div>
+                                    <span class="text-[9px] bg-accent-emerald/20 text-accent-emerald px-2 py-0.5 rounded uppercase font-bold">IIBA-EEP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT METRICS / KPI CENTER -->
+        <section id="metrics" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">
+                    Simulated PM Metrics Dashboard
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">
+                    How Sandhya's dual skill set translates directly into typical product key performance indicators. Toggle the tabs below to preview performance projections.
+                </p>
+            </div>
+
+            <!-- Interative tabs for Metrics -->
+            <div class="space-y-6">
+                <div class="flex flex-wrap justify-center gap-2" id="metric-tab-header">
+                    <button onclick="switchMetricTab('scrum')" id="tab-scrum" class="px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all flex items-center space-x-2 bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-transparent shadow-sm">
+                        <i data-lucide="activity" class="w-4 h-4"></i>
+                        <span>Scrum & Backlog Velocity</span>
+                    </button>
+                    <button onclick="switchMetricTab('stakeholder')" id="tab-stakeholder" class="px-5 py-2.5 rounded-xl text-sm font-semibold border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all flex items-center space-x-2">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        <span>Stakeholder Management</span>
+                    </button>
+                    <button onclick="switchMetricTab('delivery')" id="tab-delivery" class="px-5 py-2.5 rounded-xl text-sm font-semibold border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all flex items-center space-x-2">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                        <span>UAT & Delivery Success</span>
+                    </button>
+                </div>
+
+                <!-- Tab Content Card -->
+                <div class="glass-card rounded-2xl p-6 sm:p-8 shadow-sm">
+                    <!-- Tab Scrum -->
+                    <div id="content-scrum" class="space-y-6 transition-all duration-300">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="space-y-4">
+                                <span class="text-xs font-bold text-primary-600 dark:text-accent-emerald uppercase tracking-wider">Metric Breakdown</span>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Sprint Backlog & Velocity Optimizer</h3>
+                                <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                                    Equipped with extensive agile scrum credentials, I optimize sprint backlog hygiene. By managing DOR/DOD checklists and creating robust user stories with detailed acceptance criteria, sprint scope creep is effectively controlled.
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 pt-2">
+                                    <div class="border-l-4 border-accent-emerald pl-3">
+                                        <span class="block text-2xl font-black text-slate-900 dark:text-white">92%</span>
+                                        <span class="text-xs text-slate-500">Sprint Delivery Accuracy</span>
+                                    </div>
+                                    <div class="border-l-4 border-primary-500 pl-3">
+                                        <span class="block text-2xl font-black text-slate-900 dark:text-white">&lt; 8%</span>
+                                        <span class="text-xs text-slate-500">Scope Creep Margin</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Visual Progress Bars / Metrics Widget -->
+                            <div class="space-y-4 p-5 rounded-2xl bg-slate-100 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50">
+                                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Backlog Health & Burndown Index</div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <div class="flex justify-between text-xs font-medium mb-1">
+                                            <span>User Story Definition Ready (DOR)</span>
+                                            <span class="text-accent-emerald">95%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                            <div class="bg-accent-emerald h-full rounded-full transition-all duration-1000" style="width: 95%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs font-medium mb-1">
+                                            <span>Acceptance Criteria Completeness</span>
+                                            <span class="text-primary-500">90%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                            <div class="bg-primary-500 h-full rounded-full transition-all duration-1000" style="width: 90%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs font-medium mb-1">
+                                            <span>Backlog Prioritization Accuracy (MoSCoW)</span>
+                                            <span class="text-accent-teal">88%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                            <div class="bg-accent-teal h-full rounded-full transition-all duration-1000" style="width: 88%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Stakeholder -->
+                    <div id="content-stakeholder" class="hidden space-y-6 transition-all duration-300">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="space-y-4">
+                                <span class="text-xs font-bold text-primary-600 dark:text-accent-emerald uppercase tracking-wider">Stakeholder Management</span>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Global Stakeholder Alignment Score</h3>
+                                <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                                    A record of working across multi-continental client bases, collaborating with engineering, UI/UX, Sales, and executive sponsors. I create and govern RACI matrices, BCD profiles, and clear functional diagrams to align expectations seamlessly.
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 pt-2">
+                                    <div class="border-l-4 border-accent-emerald pl-3">
+                                        <span class="block text-2xl font-black text-slate-900 dark:text-white">96%</span>
+                                        <span class="text-xs text-slate-500">Client Satisfaction (CSAT)</span>
+                                    </div>
+                                    <div class="border-l-4 border-primary-500 pl-3">
+                                        <span class="block text-2xl font-black text-slate-900 dark:text-white">25+</span>
+                                        <span class="text-xs text-slate-500">Aligned Teams & Partners</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Visual Progress Bars -->
+                            <div class="space-y-4 p-5 rounded-2xl bg-slate-100 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50">
+                                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Coordination & Synergy Indices</div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <div class="flex justify-between text-xs font-medium mb-1">
+                                            <span>Cross-functional Alignment Rate</span>
+                                            <span class="text-accent-emerald">94%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                            <div class="bg-accent-emerald h-full rounded-full transition-all duration-1000" style="width: 94%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs font-medium mb-1">
+                                            <span>Functional Requirement Documentation Clarity</span>
+                                            <span class="text-primary-500">96%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                            <div class="bg-primary-500 h-full rounded-full transition-all duration-1000" style="width: 96%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs font-medium mb-1">
+                                            <span>Conflict Resolution & Action Delivery</span>
+                                            <span class="text-accent-teal">85%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                            <div class="bg-accent-teal h-full rounded-full transition-all duration-1000" style="width: 85%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Delivery -->
+                    <div id="content-delivery" class="hidden space-y-6 transition-all duration-300">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="space-y-4">
+                                <span class="text-xs font-bold text-primary-600 dark:text-accent-emerald uppercase tracking-wider">Quality Operations</span>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">UAT Execution & Validation Velocity</h3>
+                                <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                                    I collaborate closely with validation squads, crafting comprehensive test scenario catalogs, bridging functional gaps, and guaranteeing that the final user interface matches visual expectations with zero major launch-day slippage.
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 pt-2">
+                                    <div class="border-l-4 border-accent-emerald pl-3">
+                                        <span class="block text-2xl font-black text-slate-900 dark:text-white">100%</span>
+                                        <span class="text-xs text-slate-500">Critical Bugs Tracked & Resolved</span>
+                                    </div>
+                                    <div class="border-l-4 border-primary-500 pl-3">
+                                        <span class="block text-2xl font-black text-slate-900 dark:text-white">&lt; 2 Days</span>
+                                        <span class="text-xs text-slate-500">Average UAT Cycle Validation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Visual Progress Bars -->
+                            <div class="space-y-4 p-5 rounded-2xl bg-slate-100 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50">
+                                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Delivery & Performance Metrics</div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <div class="flex justify-between text-xs font-medium mb-1">
+                                            <span>Validation Scenario Coverage</span>
+                                            <span class="text-accent-emerald">98%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                            <div class="bg-accent-emerald h-full rounded-full transition-all duration-1000" style="width: 98%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs font-medium mb-1">
+                                            <span>Release Defect Containment</span>
+                                            <span class="text-primary-500">92%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                            <div class="bg-primary-500 h-full rounded-full transition-all duration-1000" style="width: 92%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs font-medium mb-1">
+                                            <span>Post-launch Defect Mitigation</span>
+                                            <span class="text-accent-teal">94%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                            <div class="bg-accent-teal h-full rounded-full transition-all duration-1000" style="width: 94%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT LIFECYCLE & FRAMEWORKS PLAYBOOK -->
+        <section id="playbook" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">
+                    My Product Lifecycle Playbook
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">
+                    A rigorous and structured approach to bringing digital platforms from strategic inception to continuous delivery.
+                </p>
+            </div>
+
+            <!-- Playbook Grid cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 hover:translate-y-[-4px] transition-all duration-300 relative group">
+                    <div class="absolute -top-3 left-6 w-8 h-8 rounded-full bg-primary-600 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
+                        1
+                    </div>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="p-2.5 rounded-xl bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="compass" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Discovery & Strategy</h3>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Conducted high-level Enterprise Analysis and generated robust Business Case Documents (BCD) defining strategic parameters, stakeholder maps, and investment feasibility.
+                    </p>
+                    <div class="text-xs font-bold text-primary-600 dark:text-accent-emerald">Key Artifact: Business Case Document</div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 hover:translate-y-[-4px] transition-all duration-300 relative group">
+                    <div class="absolute -top-3 left-6 w-8 h-8 rounded-full bg-primary-600 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
+                        2
+                    </div>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="p-2.5 rounded-xl bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="message-square" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Requirements Elicitation</h3>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Extracted structured and implicit user demands using focus groups, interviews, and collaborative workshops. Unified global expectations into a structured single source of truth.
+                    </p>
+                    <div class="text-xs font-bold text-primary-600 dark:text-accent-emerald">Key Artifact: Elicitation Matrix</div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 hover:translate-y-[-4px] transition-all duration-300 relative group">
+                    <div class="absolute -top-3 left-6 w-8 h-8 rounded-full bg-primary-600 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
+                        3
+                    </div>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="p-2.5 rounded-xl bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="layout" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Prioritization & Design</h3>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Sorted features utilizing MoSCoW, FURPS and RACI frameworks. Transformed complex requirements into interactive wireframes (Axure, Balsamiq) and UML flows (Star UML).
+                    </p>
+                    <div class="text-xs font-bold text-primary-600 dark:text-accent-emerald">Key Tools: MoSCoW, Axure, Star UML</div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 hover:translate-y-[-4px] transition-all duration-300 relative group">
+                    <div class="absolute -top-3 left-6 w-8 h-8 rounded-full bg-primary-600 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
+                        4
+                    </div>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="p-2.5 rounded-xl bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="file-text" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Specs & Backlog Grooming</h3>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Authored rich Business Requirements Documents (BRD) and mapped them into functional User Stories equipped with rigorous Gherkin Cucumber Acceptance Criteria.
+                    </p>
+                    <div class="text-xs font-bold text-primary-600 dark:text-accent-emerald">Key Artifact: FRD & SRS Documents</div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 hover:translate-y-[-4px] transition-all duration-300 relative group">
+                    <div class="absolute -top-3 left-6 w-8 h-8 rounded-full bg-primary-600 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
+                        5
+                    </div>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="p-2.5 rounded-xl bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="git-merge" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Agile Run & Sprint Cycles</h3>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Led daily standups, backlog grooming, sprint planning, and retrospective sessions in JIRA. Ensured precise tracking via Sprint Burn-Down/Burn-Up index reports.
+                    </p>
+                    <div class="text-xs font-bold text-primary-600 dark:text-accent-emerald">Key Artifact: Agile Burn-Down Charts</div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 hover:translate-y-[-4px] transition-all duration-300 relative group">
+                    <div class="absolute -top-3 left-6 w-8 h-8 rounded-full bg-primary-600 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
+                        6
+                    </div>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="p-2.5 rounded-xl bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="check-circle" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">UAT & Product Launch</h3>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Created precise user scenario validations to guide engineering & QA squads, ensuring final outputs aligned with baseline operational requirements prior to launch.
+                    </p>
+                    <div class="text-xs font-bold text-primary-600 dark:text-accent-emerald">Key Artifact: Requirements Traceability Matrix</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDIES / PORTFOLIO PROJECTS -->
+        <section id="projects" class="space-y-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="space-y-4 max-w-2xl text-left">
+                    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">
+                        Case Studies & Highlight Products
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        Explore core project initiatives showcasing detailed strategic frameworks, prototyping models, and metrics-driven delivery.
+                    </p>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="flex items-center space-x-2 bg-white dark:bg-slate-900 p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 self-start">
+                    <button onclick="filterProjects('all')" id="filter-btn-all" class="px-4 py-2 rounded-lg text-xs font-bold transition-all bg-primary-600 text-white shadow-sm">All Systems</button>
+                    <button onclick="filterProjects('agile')" id="filter-btn-agile" class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Agile</button>
+                    <button onclick="filterProjects('waterfall')" id="filter-btn-waterfall" class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Waterfall</button>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Project 1: Learn Majestic -->
+                <div class="project-card flex flex-col justify-between glass-card rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300" data-category="agile">
+                    <div>
+                        <!-- Header banner -->
+                        <div class="h-32 bg-gradient-to-r from-primary-600 to-indigo-700 p-6 flex flex-col justify-end text-white relative">
+                            <span class="absolute top-4 right-4 bg-accent-emerald/20 border border-accent-emerald text-accent-emerald text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">Agile Framework</span>
+                            <h4 class="text-xs uppercase tracking-widest text-slate-200 font-bold">LMS Platform Product</h4>
+                            <h3 class="text-xl font-bold">Learn Majestic</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">
+                                An integrated learning ecosystem focused on tracking real-time academic assessments, and module allocation using Agile scrum.
+                            </p>
+                            <div class="space-y-2">
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 block">Lead BA & SME Responsibilities:</span>
+                                <ul class="space-y-1.5 text-xs text-slate-500">
+                                    <li class="flex items-start space-x-1.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0 mt-0.5"></i>
+                                        <span>Prioritized Backlogs via MoSCoW & FURPS.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-1.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0 mt-0.5"></i>
+                                        <span>Maintained JIRA Backlog with Story Points.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800/60 flex justify-between items-center bg-slate-50/50 dark:bg-slate-900/30">
+                        <span class="text-xs font-semibold text-slate-400">Tools: JIRA, MS Visio</span>
+                        <button onclick="openModal('learn-majestic')" class="text-primary-600 dark:text-accent-emerald text-xs font-extrabold flex items-center space-x-1 hover:underline">
+                            <span>Deep Dive</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2: Book Bureau -->
+                <div class="project-card flex flex-col justify-between glass-card rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300" data-category="waterfall">
+                    <div>
+                        <!-- Header banner -->
+                        <div class="h-32 bg-gradient-to-r from-teal-600 to-accent-emerald p-6 flex flex-col justify-end text-white relative">
+                            <span class="absolute top-4 right-4 bg-primary-500/20 border border-primary-500 text-primary-100 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">Waterfall Model</span>
+                            <h4 class="text-xs uppercase tracking-widest text-slate-200 font-bold">Catalog & Distribution</h4>
+                            <h3 class="text-xl font-bold">Book Bureau</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">
+                                A major distribution database management product managing structured inventory transactions and digital libraries.
+                            </p>
+                            <div class="space-y-2">
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 block">Lead BA & SME Responsibilities:</span>
+                                <ul class="space-y-1.5 text-xs text-slate-500">
+                                    <li class="flex items-start space-x-1.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0 mt-0.5"></i>
+                                        <span>Engineered core BCD (Business Case Documents).</span>
+                                    </li>
+                                    <li class="flex items-start space-x-1.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0 mt-0.5"></i>
+                                        <span>Drafted unified RTM (Requirements Traceability).</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800/60 flex justify-between items-center bg-slate-50/50 dark:bg-slate-900/30">
+                        <span class="text-xs font-semibold text-slate-400">Tools: Axure, MS Visio</span>
+                        <button onclick="openModal('book-bureau')" class="text-primary-600 dark:text-accent-emerald text-xs font-extrabold flex items-center space-x-1 hover:underline">
+                            <span>Deep Dive</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3: SoulPage IT Solutions -->
+                <div class="project-card flex flex-col justify-between glass-card rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300" data-category="agile">
+                    <div>
+                        <!-- Header banner -->
+                        <div class="h-32 bg-gradient-to-r from-violet-600 to-indigo-800 p-6 flex flex-col justify-end text-white relative">
+                            <span class="absolute top-4 right-4 bg-accent-emerald/20 border border-accent-emerald text-accent-emerald text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">Senior BA Scale</span>
+                            <h4 class="text-xs uppercase tracking-widest text-slate-200 font-bold">Enterprise Client Strategy</h4>
+                            <h3 class="text-xl font-bold">SoulPage Enterprise Integrations</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">
+                                Managed full lifecycle alignment for international enterprise accounts to deploy bespoke, cloud-enabled web tools.
+                            </p>
+                            <div class="space-y-2">
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 block">Lead BA & SME Responsibilities:</span>
+                                <ul class="space-y-1.5 text-xs text-slate-500">
+                                    <li class="flex items-start space-x-1.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0 mt-0.5"></i>
+                                        <span>Authored enterprise BRD, FRD, and SRS specs.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-1.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0 mt-0.5"></i>
+                                        <span>Aligned cross-functional sales & dev teams.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800/60 flex justify-between items-center bg-slate-50/50 dark:bg-slate-900/30">
+                        <span class="text-xs font-semibold text-slate-400">Tools: Gherkin, JIRA, Confluence</span>
+                        <button onclick="openModal('soulpage')" class="text-primary-600 dark:text-accent-emerald text-xs font-extrabold flex items-center space-x-1 hover:underline">
+                            <span>Deep Dive</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIVE SYSTEM MODAL (REPLACEMENT FOR COMPLEX ROUTERS) -->
+        <div id="project-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl w-full max-w-2xl border border-slate-200 dark:border-slate-800 shadow-2xl relative overflow-hidden transition-all scale-95 opacity-0 duration-300" id="modal-container">
+                <!-- Modal Banner -->
+                <div id="modal-header-banner" class="h-40 p-8 flex flex-col justify-end text-white relative">
+                    <button onclick="closeModal()" class="absolute top-6 right-6 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-colors" aria-label="Close Modal">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                    <span id="modal-badge" class="absolute top-6 left-8 bg-white/20 text-[10px] font-bold uppercase px-3 py-1 rounded-full">Category</span>
+                    <h4 id="modal-subtitle" class="text-xs uppercase tracking-widest text-slate-200 font-semibold mb-1">Subtitle</h4>
+                    <h3 id="modal-title" class="text-2xl font-extrabold">Project Title</h3>
+                </div>
+
+                <!-- Modal Content Details -->
+                <div class="p-8 space-y-6 max-h-[60vh] overflow-y-auto" id="modal-body">
+                    <!-- Dynamic details will be loaded here by JavaScript -->
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="px-8 py-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex justify-end space-x-3">
+                    <button onclick="closeModal()" class="px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 font-bold text-xs transition-colors">
+                        Close
+                    </button>
+                    <button onclick="triggerSimulatedLiveView()" class="px-5 py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs hover:bg-primary-600 dark:hover:bg-accent-emerald dark:hover:text-slate-950 transition-colors shadow-md">
+                        Simulate Demo Live-View
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SKILLS & PM TOOLKIT HUB -->
+        <section id="skills" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">
+                    PM Toolkit & Tech Skill Stack
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">
+                    A multi-disciplinary stack containing analytics, design tools, databases, and agile execution frameworks.
+                </p>
+            </div>
+
+            <!-- Skills categorization tabs/interactive grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Group 1: Product Strategy -->
+                <div class="glass-card rounded-2xl p-6 space-y-4">
+                    <div class="flex items-center space-x-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+                        <div class="p-2 rounded-xl bg-primary-100 dark:bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="layers" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Product Strategy</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">MoSCoW / FURPS</span>
+                                <span class="font-bold text-slate-500">Expert</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">Business Case (BCD)</span>
+                                <span class="font-bold text-slate-500">Expert</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">RACI Matrix Alignment</span>
+                                <span class="font-bold text-slate-500">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 2: Wireframing & Design -->
+                <div class="glass-card rounded-2xl p-6 space-y-4">
+                    <div class="flex items-center space-x-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+                        <div class="p-2 rounded-xl bg-primary-100 dark:bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="edit-3" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Prototyping & Flow</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">Axure RP 7.0</span>
+                                <span class="font-bold text-slate-500">Expert</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">Balsamiq Mockups</span>
+                                <span class="font-bold text-slate-500">Expert</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 89%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">Star UML / MS Visio</span>
+                                <span class="font-bold text-slate-500">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 91%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 3: Data Analytics -->
+                <div class="glass-card rounded-2xl p-6 space-y-4">
+                    <div class="flex items-center space-x-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+                        <div class="p-2 rounded-xl bg-primary-100 dark:bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="bar-chart" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Analytics & DB</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">SQL Queries</span>
+                                <span class="font-bold text-slate-500">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">Power BI & Tableau</span>
+                                <span class="font-bold text-slate-500">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 82%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">Informatica / HTML</span>
+                                <span class="font-bold text-slate-500">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 4: Agile Execution & Collaboration -->
+                <div class="glass-card rounded-2xl p-6 space-y-4">
+                    <div class="flex items-center space-x-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+                        <div class="p-2 rounded-xl bg-primary-100 dark:bg-primary-500/10 text-primary-600 dark:text-accent-emerald">
+                            <i data-lucide="check-square" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Agile Execution</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">JIRA Backlog Orchestration</span>
+                                <span class="font-bold text-slate-500">Expert</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">Cucumber Studio (Gherkin)</span>
+                                <span class="font-bold text-slate-500">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 86%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700 dark:text-slate-300">Confluence Wiki Setup</span>
+                                <span class="font-bold text-slate-500">Expert</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary-500 h-full" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTEGRATED PROFESSIONAL JOURNEY TIMELINE -->
+        <section id="experience" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">
+                    Professional Journey
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">
+                    Tracing the transition from academic mentorship and SME-level system modeling to enterprise product delivery at scale.
+                </p>
+            </div>
+
+            <!-- Vertical Roadmap/Timeline -->
+            <div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-32 space-y-16">
+                
+                <!-- Experience Milestone 1 -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <!-- Dot anchor -->
+                    <span class="absolute left-[-9px] top-1.5 w-4 h-4 rounded-full bg-primary-600 ring-4 ring-primary-500/10 group-hover:scale-125 transition-transform"></span>
+                    
+                    <!-- Date Floating Left on Desktop -->
+                    <div class="md:absolute md:left-[-150px] md:top-1.5 md:w-32 md:text-right text-xs font-bold text-primary-600 dark:text-accent-emerald tracking-wider uppercase mb-2 md:mb-0">
+                        Feb 2024 — July 2025
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Senior Business Analyst</h3>
+                                <p class="text-xs text-primary-600 dark:text-accent-emerald font-semibold uppercase tracking-wider">SoulPage IT Solutions Pvt Ltd</p>
+                            </div>
+                            <span class="inline-block bg-accent-emerald/10 border border-accent-emerald/20 text-accent-emerald text-[11px] font-semibold px-3 py-1 rounded-full self-start">Enterprise Tech</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Acted as the key interface bridging corporate client demands with engineering sprints. Conducted strategic assessment mapping, structured multi-tenant systems, and drove end-to-end UAT cycles for production releases.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded uppercase">BRD/FRD Authoring</span>
+                            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded uppercase">Client Alignment</span>
+                            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded uppercase">Product Roadmap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Milestone 2 -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <span class="absolute left-[-9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-700 ring-4 ring-slate-500/10 group-hover:scale-125 transition-transform"></span>
+                    
+                    <div class="md:absolute md:left-[-150px] md:top-1.5 md:w-32 md:text-right text-xs font-bold text-slate-500 tracking-wider uppercase mb-2 md:mb-0">
+                        Jan 2023 — Aug 2023
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Assistant Professor / Product SME</h3>
+                                <p class="text-xs text-primary-600 dark:text-accent-emerald font-semibold uppercase tracking-wider">Sreenidhi Institute of Science & Technology</p>
+                            </div>
+                            <span class="inline-block bg-primary-500/10 border border-primary-500/20 text-primary-600 dark:text-primary-100 text-[11px] font-semibold px-3 py-1 rounded-full self-start">EdTech Product</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Interacted with academic system administrators to gather digital portal parameters. Managed JIRA backlog setup for the "Learn Majestic" Agile portal. Added user stories with clear acceptance criteria.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded uppercase">Backlog Grooming</span>
+                            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded uppercase">Sprint Control</span>
+                            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded uppercase">Burndown charts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Milestone 3 -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <span class="absolute left-[-9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-700 ring-4 ring-slate-500/10 group-hover:scale-125 transition-transform"></span>
+                    
+                    <div class="md:absolute md:left-[-150px] md:top-1.5 md:w-32 md:text-right text-xs font-bold text-slate-500 tracking-wider uppercase mb-2 md:mb-0">
+                        Oct 2017 — Jan 2023
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Assistant Professor & SME</h3>
+                                <p class="text-xs text-primary-600 dark:text-accent-emerald font-semibold uppercase tracking-wider">Malla Reddy Group of Institutions</p>
+                            </div>
+                            <span class="inline-block bg-primary-500/10 border border-primary-500/20 text-primary-600 dark:text-primary-100 text-[11px] font-semibold px-3 py-1 rounded-full self-start">Waterfall Transition</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Spearheaded "Book Bureau" enterprise-level resource tracking software lifecycle. Translated BRDs into detailed Functional Requirements (FRD), designed clear UI wireframe flow sheets on Axure and MS Visio.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded uppercase">Axure Wireframes</span>
+                            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded uppercase">UML Design</span>
+                            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded uppercase">RTM Control</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Qualifications Section (Simulated Grid Card) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+                <div class="glass-card rounded-2xl p-6 flex items-start space-x-4">
+                    <div class="p-3 bg-gradient-to-tr from-primary-600 to-indigo-700 text-white rounded-xl">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Post-Graduation</h4>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Master of Technology (M.Tech)</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Karunya University, Coimbatore (2013-2015)</p>
+                        <span class="inline-block mt-2 text-[10px] bg-accent-emerald/20 text-accent-emerald font-bold px-2.5 py-1 rounded">Rank Holder in Academics</span>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 flex items-start space-x-4">
+                    <div class="p-3 bg-gradient-to-tr from-primary-600 to-indigo-700 text-white rounded-xl">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Graduation</h4>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Bachelor of Technology (B.Tech)</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">G Pulla Reddy Engineering College, Kurnool (2009-2013)</p>
+                        <span class="inline-block mt-2 text-[10px] bg-primary-500/20 text-primary-600 dark:text-primary-100 font-bold px-2.5 py-1 rounded">Computer Science & IT</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & COLLABORATION CONSOLE -->
+        <section id="contact" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">
+                    Let's Build Great Products
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">
+                    Need a product practitioner to align stakeholders, build solid roadmaps, or govern Agile delivery? Drop a message below to simulate an immediate connection request.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Info cards column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-card rounded-2xl p-6 flex items-center space-x-4">
+                        <div class="p-3 bg-primary-100 dark:bg-primary-500/10 text-primary-600 dark:text-accent-emerald rounded-xl">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Email Inquiry</span>
+                            <a href="mailto:sandhyapuladas@gmail.com" class="block font-bold text-slate-900 dark:text-white hover:underline text-sm sm:text-base">sandhyapuladas@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 flex items-center space-x-4">
+                        <div class="p-3 bg-primary-100 dark:bg-primary-500/10 text-primary-600 dark:text-accent-emerald rounded-xl">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Direct Hotline</span>
+                            <a href="tel:+918121885246" class="block font-bold text-slate-900 dark:text-white hover:underline text-sm sm:text-base">+91 81218-85246</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 flex items-center space-x-4">
+                        <div class="p-3 bg-primary-100 dark:bg-primary-500/10 text-primary-600 dark:text-accent-emerald rounded-xl">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">LinkedIn Handle</span>
+                            <a href="https://www.linkedin.com/in/sandhya-priyanka-96737687" target="_blank" rel="noopener noreferrer" class="block font-bold text-slate-900 dark:text-white hover:underline text-xs sm:text-sm">linkedin.com/in/sandhya-priyanka-96737687</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card Console -->
+                <div class="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8 relative">
+                    <form id="portfolio-contact-form" onsubmit="handleFormSubmission(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="client_name" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Your Name</label>
+                                <input type="text" id="client_name" required class="w-full bg-slate-100/50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 focus:border-primary-500 rounded-xl px-4 py-3 text-sm focus:outline-none transition-all text-slate-900 dark:text-white" placeholder="Jane Doe">
+                            </div>
+                            <div>
+                                <label for="client_email" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Corporate Email</label>
+                                <input type="email" id="client_email" required class="w-full bg-slate-100/50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 focus:border-primary-500 rounded-xl px-4 py-3 text-sm focus:outline-none transition-all text-slate-900 dark:text-white" placeholder="jane@enterprise.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="client_subject" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Inquiry Focus / Context</label>
+                            <select id="client_subject" class="w-full bg-slate-100/50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 focus:border-primary-500 rounded-xl px-4 py-3 text-sm focus:outline-none transition-all text-slate-900 dark:text-white">
+                                <option value="pm">Lead Product Manager Recruitment</option>
+                                <option value="ba">Senior Business Analyst Opportunity</option>
+                                <option value="consulting">Product Consulting / Review</option>
+                                <option value="other">General Connection Request</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="client_msg" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Project Brief / Message</label>
+                            <textarea id="client_msg" rows="4" required class="w-full bg-slate-100/50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 focus:border-primary-500 rounded-xl px-4 py-3 text-sm focus:outline-none transition-all text-slate-900 dark:text-white" placeholder="Describe the scope of your system or requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md active:scale-[0.98]">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Send Connection Request</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="space-y-1">
+                <span class="font-bold text-slate-900 dark:text-white text-lg">P. Sandhya Priyanka</span>
+                <p class="text-xs text-slate-500">Certified IT-Business Analyst (IIBA-EEP COEPD)</p>
+            </div>
+            
+            <div class="flex items-center space-x-6 text-slate-500">
+                <a href="#hero" class="text-xs hover:text-primary-600 transition-colors">Back to Top</a>
+                <a href="mailto:sandhyapuladas@gmail.com" class="text-xs hover:text-primary-600 transition-colors">Email</a>
+                <a href="tel:+918121885246" class="text-xs hover:text-primary-600 transition-colors">Call</a>
+                <a href="https://www.linkedin.com/in/sandhya-priyanka-96737687" target="_blank" rel="noopener" class="text-xs hover:text-primary-600 transition-colors">LinkedIn</a>
+            </div>
+
+            <p class="text-[11px] text-slate-400">
+                &copy; <span id="footer-year">2026</span> Sandhya Priyanka. Crafted with standard single-file accessibility.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic & State Scripts -->
+    <script>
+        // Init Lucide Icons
+        window.onload = function() {
+            lucide.createIcons();
+            document.getElementById('footer-year').textContent = new Date().getFullYear();
+        }
+
+        // Dark/Light Theme Customizer Implementation
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // System Theme Pref check
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            menuIconOpen.classList.toggle('hidden');
+            menuIconClose.classList.toggle('hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Sticky Header scroll styling
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 40) {
+                header.classList.add('py-2');
+            } else {
+                header.classList.remove('py-2');
+            }
+        });
+
+        // Interactive Metrics Dashboard Tab Switching
+        function switchMetricTab(tabId) {
+            const tabs = ['scrum', 'stakeholder', 'delivery'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('tab-' + t);
+                const content = document.getElementById('content-' + t);
+                
+                if (t === tabId) {
+                    btn.className = "px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all flex items-center space-x-2 bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-transparent shadow-sm";
+                    content.classList.remove('hidden');
+                } else {
+                    btn.className = "px-5 py-2.5 rounded-xl text-sm font-semibold border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all flex items-center space-x-2";
+                    content.classList.add('hidden');
+                }
+            });
+        }
+
+        // Custom notification system (No alert allowed guardrail)
+        function triggerToast(message, type = 'success') {
+            const toastContainer = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `flex items-center space-x-3 px-5 py-3.5 rounded-2xl border bg-white dark:bg-slate-900 shadow-xl pointer-events-auto transform translate-y-2 opacity-0 transition-all duration-300 ${
+                type === 'success' 
+                    ? 'border-accent-emerald text-slate-900 dark:text-white' 
+                    : 'border-primary-500 text-slate-900 dark:text-white'
+            }`;
+
+            const icon = type === 'success' ? 'check-circle' : 'info';
+            const iconColor = type === 'success' ? 'text-accent-emerald' : 'text-primary-500';
+
+            toast.innerHTML = `
+                <i data-lucide="${icon}" class="w-5 h-5 ${iconColor}"></i>
+                <span class="text-xs font-semibold">${message}</span>
+            `;
+
+            toastContainer.appendChild(toast);
+            lucide.createIcons();
+
+            // Trigger animation
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 50);
+
+            // Hide and destroy
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 4000);
+        }
+
+        // Simulated Resume download trigger
+        function triggerResumeDownload() {
+            triggerToast("Preparing Resume Package (P_Sandhya_Priyanka_Resume.pdf)...", 'info');
+            setTimeout(() => {
+                triggerToast("Download started successfully!", 'success');
+            }, 1200);
+        }
+
+        // Dynamic Filtering of Projects Case Studies
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const filterBtns = ['all', 'agile', 'waterfall'];
+
+            // Update button styles
+            filterBtns.forEach(btnName => {
+                const btn = document.getElementById('filter-btn-' + btnName);
+                if (btnName === category) {
+                    btn.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all bg-primary-600 text-white shadow-sm";
+                } else {
+                    btn.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800";
+                }
+            });
+
+            // Handle Cards visibility
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Dynamic Product Case Study Modal Data
+        const projectData = {
+            'learn-majestic': {
+                title: "Learn Majestic LMS Platform",
+                subtitle: "EdTech Agile Implementation Strategy",
+                badge: "Agile Scrum System",
+                bannerGradient: "from-primary-600 to-indigo-700",
+                description: `
+                    <div class="space-y-4">
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            <strong>Context:</strong> As Product SME/BA inside the SNIST technology suite, I owned backlog grooming and story generation to map curriculum metrics into automated dashboard milestones.
+                        </p>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-950 rounded-xl space-y-2">
+                            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Metrics Achieved</h5>
+                            <ul class="text-xs space-y-1.5 text-slate-600 dark:text-slate-400 list-disc list-inside">
+                                <li>Configured and managed user stories inside <strong>JIRA</strong>.</li>
+                                <li>Prioritized roadmap components with <strong>MoSCoW</strong> and <strong>FURPS</strong> frameworks.</li>
+                                <li>Defined strict Definition of Ready (DOR) and Definition of Done (DOD) metrics to eliminate alignment disputes.</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Target Users:</span>
+                            <p class="text-xs text-slate-500">Academic administrators, educators, students, and program evaluators.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'book-bureau': {
+                title: "Book Bureau Distribution System",
+                subtitle: "Waterfall Database Architecture & Inventory Control",
+                badge: "Waterfall Architecture",
+                bannerGradient: "from-teal-600 to-accent-emerald",
+                description: `
+                    <div class="space-y-4">
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            <strong>Context:</strong> Directed system flow diagrams and logical schemas for a multi-campus, multi-tenant digital book repository and loan manager tracking thousands of active assets daily.
+                        </p>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-950 rounded-xl space-y-2">
+                            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Engineering Focus & Outputs</h5>
+                            <ul class="text-xs space-y-1.5 text-slate-600 dark:text-slate-400 list-disc list-inside">
+                                <li>Built comprehensive Business Case Documents (BCD) and mapped user access rights using <strong>RACI Matrices</strong>.</li>
+                                <li>Designed clear interaction diagrams on <strong>MS Visio</strong> and UI wireframe flows on <strong>Axure 7.0</strong>.</li>
+                                <li>Engineered standard Requirements Traceability Matrices (RTM) to map QA test cases to database specifications.</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Technical Tools Utilized:</span>
+                            <p class="text-xs text-slate-500">Axure, MS Visio, STAR UML, SQL.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'soulpage': {
+                title: "SoulPage Enterprise Platform Integrations",
+                subtitle: "Senior BA Enterprise Solution Strategies",
+                badge: "Senior BA Focus",
+                bannerGradient: "from-violet-600 to-indigo-800",
+                description: `
+                    <div class="space-y-4">
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            <strong>Context:</strong> Acted as key client consultant for enterprise accounts. Directed tailored system transformations with robust, high-performance web tool dependencies.
+                        </p>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-950 rounded-xl space-y-2">
+                            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Key Business Contributions</h5>
+                            <ul class="text-xs space-y-1.5 text-slate-600 dark:text-slate-400 list-disc list-inside">
+                                <li>Collaborated directly with sales to translate prospective accounts into viable <strong>BRD / FRD specs</strong>.</li>
+                                <li>Formulated structured User Stories decorated with robust <strong>Gherkin Scenario Scripts</strong> in Cucumber Studio.</li>
+                                <li>Directed full UAT validation plans ensuring clean, dispute-free project delivery and deployment.</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Client Demographics:</span>
+                            <p class="text-xs text-slate-500">Global B2B platforms, enterprise distributors, and SaaS vendors.</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        const modal = document.getElementById('project-modal');
+        const modalContainer = document.getElementById('modal-container');
+
+        function openModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
+
+            // Set content dynamically
+            const banner = document.getElementById('modal-header-banner');
+            banner.className = `h-40 p-8 flex flex-col justify-end text-white relative bg-gradient-to-r ${data.bannerGradient}`;
+            
+            document.getElementById('modal-badge').textContent = data.badge;
+            document.getElementById('modal-subtitle').textContent = data.subtitle;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-body').innerHTML = data.description;
+
+            // Show Modal and animate
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContainer.classList.remove('scale-95', 'opacity-0');
+            }, 50);
+        }
+
+        function closeModal() {
+            modalContainer.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close on ESC key press
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Live Demo Simulation Interaction
+        function triggerSimulatedLiveView() {
+            closeModal();
+            triggerToast("Booting secure product sandbox view...", "info");
+            setTimeout(() => {
+                triggerToast("Demo workspace loaded successfully!", "success");
+            }, 1500);
+        }
+
+        // Contact Form Custom State & Processing (No alerts used)
+        function handleFormSubmission(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('client_name').value;
+            const email = document.getElementById('client_email').value;
+            const focus = document.getElementById('client_subject').options[document.getElementById('client_subject').selectedIndex].text;
+            const message = document.getElementById('client_msg').value;
+
+            triggerToast("Transmitting inquiry...", "info");
+
+            setTimeout(() => {
+                // Success feedback with name context
+                triggerToast(`Thank you, ${name}! Your request for "${focus}" was sent.`, "success");
+                
+                // Clear Form Fields safely
+                document.getElementById('portfolio-contact-form').reset();
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
