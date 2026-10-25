@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puladas Sandhya Priyanka — Product Management Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #475569;
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius: 8px;
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0 3rem;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p.tagline {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p.summary {
+            font-size: 1.05rem;
+            color: var(--secondary);
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--secondary);
+            background-color: var(--bg-card);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section h2 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.01);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #eff6ff;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+        }
+
+        /* Case Studies Section */
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: var(--radius);
+            cursor: pointer;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+            border-color: #cbd5e1;
+        }
+
+        .project-category-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        .skills-demonstrated {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .proof-links {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Experience Timeline */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .experience-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .experience-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .experience-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .experience-item ul {
+            margin-top: 0.75rem;
+            padding-left: 1.2rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.35rem;
+        }
+
+        /* Certifications */
+        .cert-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+
+        .cert-info h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-info p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.1rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-content">
+            <div class="logo">Puladas Sandhya Priyanka</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <p class="tagline">Aspiring Product Manager & Business Analysis Practitioner</p>
+        <h1>Bridging business needs, user insights, and technical execution.</h1>
+        <p class="summary">7.5 years of total professional experience across academia and Business Analysis, combined with hands-on AI-First Product Management training and applied end-to-end product case studies.</p>
+        <div class="hero-cta">
+            <a href="#case-studies" class="btn btn-primary">Explore Case Studies</a>
+            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="about-grid">
+            <div class="about-text card">
+                <p>I am an aspiring Product Manager with a strong foundation in Business Analysis and technical problem-solving. Over my career, I have honed my expertise in requirements elicitation, structured problem framing, stakeholder collaboration, and translating business complexity into actionable functional specs.</p>
+                <p>Recently, I expanded my core competencies through rigorous, hands-on training in AI-First Product Management at Airtribe[cite: 1], where I designed end-to-end product solutions, user research surveys, PRDs, monetization strategies, and deployed a live AI voice agent capstone project on Replit[cite: 1, 3].</p>
+                <p>As the founder of <strong>Elim Foods</strong>, I also bring firsthand entrepreneurial execution and customer-centric ownership—taking a natural food brand from product conception and pricing to scaling deliveries across multiple states[cite: 1, 2].</p>
+            </div>
+            <div class="card">
+                <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem;">Core Strengths</h3>
+                <ul style="padding-left: 1.2rem; color: var(--secondary); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <li>Problem Framing & Root-Cause Analysis</li>
+                    <li>Requirements Elicitation & BRD/PRD Authorship</li>
+                    <li>Cross-functional Stakeholder Collaboration</li>
+                    <li>User Research & Behavioral Segmentation</li>
+                    <li>AI Product Scoping & Prototyping</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Management Skills -->
+    <section id="skills" class="container">
+        <h2>Product Management Skills</h2>
+        <div class="skills-grid">
+            <div class="card skill-category">
+                <h3>Product Discovery & Research</h3>
+                <div class="skill-tags">
+                    <span class="tag">User Research</span>
+                    <span class="tag">Survey Design</span>
+                    <span class="tag">Competitor Analysis</span>
+                    <span class="tag">User Personas</span>
+                </div>
+            </div>
+            <div class="card skill-category">
+                <h3>Problem Framing & Prioritization</h3>
+                <div class="skill-tags">
+                    <span class="tag">RICE Prioritization</span>
+                    <span class="tag">MoSCoW Method</span>
+                    <span class="tag">Root-Cause Analysis</span>
+                    <span class="tag">Problem Statements</span>
+                </div>
+            </div>
+            <div class="card skill-category">
+                <h3>Product Strategy & Market Research</h3>
+                <div class="skill-tags">
+                    <span class="tag">TAM/SAM/SOM</span>
+                    <span class="tag">B2B Strategy</span>
+                    <span class="tag">Differentiation Moats</span>
+                    <span class="tag">3-Year Roadmaps</span>
+                </div>
+            </div>
+            <div class="card skill-category">
+                <h3>Product Requirements & PRDs</h3>
+                <div class="skill-tags">
+                    <span class="tag">PRD Authorship</span>
+                    <span class="tag">User Stories</span>
+                    <span class="tag">Acceptance Criteria</span>
+                    <span class="tag">BRD / FRD / SRS</span>
+                </div>
+            </div>
+            <div class="card skill-category">
+                <h3>UX & Product Design</h3>
+                <div class="skill-tags">
+                    <span class="tag">Wireframing</span>
+                    <span class="tag">Nielsen's Heuristics</span>
+                    <span class="tag">UX Laws Mapping</span>
+                    <span class="tag">Journey Mapping</span>
+                </div>
+            </div>
+            <div class="card skill-category">
+                <h3>Analytics, Growth & AI</h3>
+                <div class="skill-tags">
+                    <span class="tag">Funnel & Cohort Analysis</span>
+                    <span class="tag">North Star Metrics</span>
+                    <span class="tag">AI Voice Agent Integration</span>
+                    <span class="tag">Prompt Engineering</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="case-studies" class="container">
+        <h2>Product Management Case Studies</h2>
+        
+        <!-- Filter Bar -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('ai')">AI Product Management</button>
+            <button class="filter-btn" onclick="filterProjects('growth')">Growth & Prioritization</button>
+            <button class="filter-btn" onclick="filterProjects('strategy')">Product Strategy</button>
+            <button class="filter-btn" onclick="filterProjects('ux')">UX & Design</button>
+            <button class="filter-btn" onclick="filterProjects('prd')">PRD & Execution</button>
+        </div>
+
+        <div class="projects-grid">
+            
+            <!-- Project 1 -->
+            <div class="project-card" data-category="ai">
+                <div>
+                    <div class="project-category-badge">AI Product Management • Capstone</div>
+                    <h3>Out Loud — AI Speaking Coach</h3>
+                    <p>Designed and shipped an end-to-end AI voice product for interview readiness, integrating Deepgram's real-time Voice Agent API with PostgreSQL and Replit[cite: 1].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> PRDs, User Surveys, WebSocket Troubleshooting, North Star Metrics, SQL Analytics</div>
+                    <div class="proof-links">
+                        <span style="color: var(--text-muted);">Live Capstone Project</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card" data-category="prd">
+                <div>
+                    <div class="project-category-badge">PRD & Product Execution</div>
+                    <h3>VitaFit — Effective Communication</h3>
+                    <p>Diagnosed retention drop-offs for an on-demand fitness platform and proposed a Personalized Coach Journey and Instructor-led Community Challenges with a complete PRD[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> Root-Cause Diagnosis, Feature Prioritization, Wireframing, PRD Spec</div>
+                    <div class="proof-links">
+                        <a href="#">View Case Study (PDF)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card" data-category="growth">
+                <div>
+                    <div class="project-category-badge">Growth & Prioritization</div>
+                    <h3>Zepto — Increasing Average Order Value</h3>
+                    <p>Combined primary surveys and behavioral segmentation to identify shopping blockers and formulated a RICE-prioritized solution set to boost quick-commerce basket size[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> Behavioral Segmentation, Blocker Analysis, RICE Prioritization</div>
+                    <div class="proof-links">
+                        <a href="#">View Case Study (PDF)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card" data-category="strategy">
+                <div>
+                    <div class="project-category-badge">Product Strategy</div>
+                    <h3>Uber — Find My Ride (Smart Pickup)</h3>
+                    <p>Conducted TAM/SAM/SOM market sizing, survey-backed user segmentation, and prototype testing to resolve complex pickup coordination friction[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> Market Sizing, Competitive Analysis, Survey Design, Prototyping</div>
+                    <div class="proof-links">
+                        <a href="https://smart-pickup-hub.replit.app/" target="_blank">Explore Prototype[cite: 3]</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card" data-category="strategy">
+                <div>
+                    <div class="project-category-badge">Product Strategy</div>
+                    <h3>Learnfinity — B2B Product Strategy</h3>
+                    <p>Built a 3-year strategic roadmap and differentiation framework for a B2B corporate learning platform focusing on employee career ROI and defensible moats[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> Strategic Roadmapping, Moat Analysis, Land & Expand GTM</div>
+                    <div class="proof-links">
+                        <a href="#">View Case Study (PDF)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card" data-category="ux">
+                <div>
+                    <div class="project-category-badge">UX Research & Design</div>
+                    <h3>Gamyam (TGSRTC) — Digital User Flows</h3>
+                    <p>Evaluated usability friction in TGSRTC's live bus-tracking app against Nielsen's Heuristics and UX Laws to propose targeted interface improvements[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> Heuristic Evaluation, UX Laws Mapping, UI/UX Recommendations</div>
+                    <div class="proof-links">
+                        <a href="#">View Case Study (PDF)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-card" data-category="ux">
+                <div>
+                    <div class="project-category-badge">UX Research & Design</div>
+                    <h3>Nykaa — User Experience Analysis</h3>
+                    <p>Mapped end-to-end shopping journeys and conducted qualitative user interviews to evaluate search, discovery, and conversion friction points[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> Journey Mapping, Qualitative Interviews, Critical Evaluation</div>
+                    <div class="proof-links">
+                        <a href="#">View Case Study (PDF)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card" data-category="growth">
+                <div>
+                    <div class="project-category-badge">Growth & Monetization</div>
+                    <h3>Airbnb (India) — PLG Strategy</h3>
+                    <p>Designed a product-led growth strategy, engagement loops, host-guest community flywheels, and MVP hypotheses for India expansion[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> Growth Loops, Flywheel Design, Revenue Modeling, MVP Scoping</div>
+                    <div class="proof-links">
+                        <a href="#">View Case Study (PDF)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card" data-category="growth">
+                <div>
+                    <div class="project-category-badge">Product Analytics & Metrics</div>
+                    <h3>Zomato — Analytics & Metrics Design</h3>
+                    <p>Analyzed 7-stage delivery funnels, mapped user cohorts, and defined North Star metrics with supporting input/output indicators for Tier-1 city retention[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> Funnel Analysis, Cohort Retention, Ladder Metrics Design</div>
+                    <div class="proof-links">
+                        <a href="#">View Case Study (PDF)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="project-card" data-category="ai">
+                <div>
+                    <div class="project-category-badge">AI Product Management</div>
+                    <h3>AI Support Ops Assistant</h3>
+                    <p>Scoped and built independent AI Skill vs. Agent components to automate customer support ticket routing, tone-consistent replies, and bug triage[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> AI Building Block Scoping, Independent Component Testing</div>
+                    <div class="proof-links">
+                        <a href="#">View Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 11 -->
+            <div class="project-card" data-category="ai">
+                <div>
+                    <div class="project-category-badge">Technical PM & System Design</div>
+                    <h3>Tech 101 — Recommendation System</h3>
+                    <p>Authored technical requirements, user stories, non-functional constraints, and system architecture for a multi-persona learning recommendation engine[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> System Design, Trade-off Analysis, Technical PRDs</div>
+                    <div class="proof-links">
+                        <a href="#">View Supporting Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 12 -->
+            <div class="project-card" data-category="ai">
+                <div>
+                    <div class="project-category-badge">AI Product Management</div>
+                    <h3>AI Prompt Design — PRD Generator</h3>
+                    <p>Engineered a reusable system prompt specifying expert PM personas, formatting rules, and guardrails to automate high-quality PRD generation[cite: 3].</p>
+                </div>
+                <div class="project-meta">
+                    <div class="skills-demonstrated"><strong>Demonstrated:</strong> Prompt Engineering as Process Design, Guardrail Definition</div>
+                    <div class="proof-links">
+                        <a href="#">View Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="container">
+        <h2>Certifications and Learning</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="cert-card">
+                <div class="cert-info">
+                    <h3>AI-First Product Management — Airtribe</h3>
+                    <p><strong>Certificate of Completion</strong> | Issued: September 07, 2026[cite: 1, 4]</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">Comprehensive hands-on PM program covering user research, PRDs, monetization, presentations, and live AI product deployments[cite: 2].</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-info">
+                    <h3>Certified IT-Business Analyst (IIBA EEP) — COEPD</h3>
+                    <p>Issued: August 2023 | 40 PD Hours[cite: 2, 5]</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">Rigorous training in BABOK V3 key concepts, requirements life cycle management, solution evaluation, and strategy analysis[cite: 5].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience" class="container">
+        <h2>Professional Experience</h2>
+        <div class="experience-list">
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Founder and Product Owner</div>
+                        <div class="experience-company">Elim Foods</div>
+                    </div>
+                    <div class="experience-date">Nov 2025 — Present[cite: 2]</div>
+                </div>
+                <ul>
+                    <li>Own the product end to end, defining natural product value propositions, pricing, customer feedback loops, and iterative growth roadmaps[cite: 2].</li>
+                    <li>Scaled delivery to 50+ orders across Andhra Pradesh, Telangana, Tamil Nadu, and overseas customers[cite: 2].</li>
+                    <li>Tracked customer retention through repeat orders (returning customers placing 2 to 6 orders each)[cite: 2].</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Senior Business Analyst</div>
+                        <div class="experience-company">SoulPage IT Solutions Pvt Ltd</div>
+                    </div>
+                    <div class="experience-date">Feb 2024 — Jul 2025[cite: 2]</div>
+                </div>
+                <ul>
+                    <li>Conducted business needs assessments with Sales teams, shaping IT strategic plans aligned with corporate goals[cite: 2].</li>
+                    <li>Acted as the key communication bridge between global enterprise clients and technical development teams[cite: 3].</li>
+                    <li>Authored comprehensive BRDs, FRDs, SRS documents, user manuals, and version-control documentation[cite: 3].</li>
+                    <li>Facilitated successful UAT cycles by preparing robust test case scenarios[cite: 3].</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Assistant Professor (Business Analysis)</div>
+                        <div class="experience-company">Sreenidhi Institute of Science and Technology</div>
+                    </div>
+                    <div class="experience-date">Jan 2023 — Aug 2023[cite: 3]</div>
+                </div>
+                <ul>
+                    <li>Gathered stakeholder requirements using elicitation techniques and managed product backlogs in JIRA[cite: 3].</li>
+                    <li>Prioritized requirements using MoSCOW and FURPS frameworks and planned sprint backlogs[cite: 3].</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Assistant Professor (Business Analysis)</div>
+                        <div class="experience-company">Malla Reddy Group of Institutions</div>
+                    </div>
+                    <div class="experience-date">Oct 2017 — Jan 2023[cite: 3]</div>
+                </div>
+                <ul>
+                    <li>Conducted enterprise analysis, prepared business case documents, stakeholder analysis, and RACI matrices[cite: 3].</li>
+                    <li>Created UML diagrams and wireframes in MS Visio and Axure while maintaining requirements traceability matrices (RTM)[cite: 3].</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container" style="border-bottom: none;">
+        <h2>Contact</h2>
+        <div class="card" style="display: flex; flex-direction: column; gap: 1rem; max-width: 600px;">
+            <p>I am actively looking for Associate Product Manager or Product Manager opportunities where I can combine my technical foundation and user-centric problem-solving[cite: 1]. Let's connect!</p>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem;">
+                <div><strong>Email:</strong> <a href="mailto:sandhyapuladas@gmail.com">sandhyapuladas@gmail.com</a>[cite: 1]</div>
+                <div><strong>Phone:</strong> +91 81218-85246[cite: 1]</div>
+                <div><strong>Location:</strong> Hyderabad, Telangana, India[cite: 1, 2]</div>
+                <div><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sandhyapriyanka-96737687" target="_blank">linkedin.com/in/sandhyapriyanka-96737687</a>[cite: 1]</div>
+                <div><strong>GitHub Portfolio:</strong> <a href="https://puladassandhya.github.io/Portfolio" target="_blank">puladassandhya.github.io/Portfolio</a>[cite: 1]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Puladas Sandhya Priyanka. Built for Product Management Practice.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Filtering -->
+    <script>
+        function filterProjects(category) {
+            // Update active button
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
