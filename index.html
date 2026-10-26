@@ -356,7 +356,58 @@
       h1 { letter-spacing: -1px; }
       .card { padding: 20px; }
     }
+.project-card {
+  transition: transform .2s ease, border-color .2s ease;
+}
 
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.project-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tag-bg);
+  color: var(--accent);
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.project-icon svg {
+  width: 23px;
+  height: 23px;
+  stroke-width: 1.8;
+}
+
+.card {
+  box-shadow: none;
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+}
+
+.button {
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+section {
+  scroll-margin-top: 85px;
+}
   </style>
 <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -962,5 +1013,10 @@
     document.getElementById("year").textContent = new Date().getFullYear();
     updateThemeButton();
   </script>
+  <script>
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+</script>
 </body>
 </html>
