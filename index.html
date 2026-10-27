@@ -356,57 +356,54 @@
       h1 { letter-spacing: -1px; }
       .card { padding: 20px; }
     }
+
+/* Fix project card alignment and title overflow */
 .project-card {
-  transition: transform .2s ease, border-color .2s ease;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
-  border-color: var(--accent);
 }
 
+/* Keep titles inside project cards */
+.project-card h3 {
+  max-width: 100%;
+  box-sizing: border-box;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  margin-top: 0;
+}
+
+/* Keep descriptions and links inside cards */
+.project-card p,
+.project-card a {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+/* Style the project icons consistently */
 .project-icon {
   width: 46px;
   height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   background: var(--tag-bg);
   color: var(--accent);
   border-radius: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .project-icon svg {
   width: 23px;
   height: 23px;
   stroke-width: 1.8;
-}
-
-.card {
-  box-shadow: none;
-}
-
-.card:hover {
-  box-shadow: var(--shadow);
-}
-
-.button {
-  transition: transform .15s ease, opacity .15s ease;
-}
-
-.button:hover {
-  transform: translateY(-1px);
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-section {
-  scroll-margin-top: 85px;
 }
   </style>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -550,19 +547,18 @@ section {
                  target="_blank" rel="noopener noreferrer">Try prototype ↗</a>
               <a href="projects/outloud.html">Case study →</a>
             </div>
-          </article>
+          
 
-          <article class="card">
-            <div class="project-top">
-              <h3>Uber — Smart Pickup Coordination</h3>
-              <span class="project-number">DISCOVER</span>
-            </div>
-            <p>
-              Explored pickup coordination challenges through market sizing,
-              India-specific context, survey research, persona development,
-              and prototype planning.
-            </p>
-            <div class="tag-list">
+<div class="project-card">
+  <div class="project-icon">
+    <i data-lucide="map-pin"></i>
+  </div>
+
+  <h3>Uber Smart Pickup</h3>
+  
+<p>Improving the rider pickup experience.</p>
+  </div>            
+<div class="tag-list">
               <span class="tag">User Research</span>
               <span class="tag">TAM/SAM/SOM</span>
               <span class="tag">Prototype</span>
@@ -572,15 +568,15 @@ section {
                  target="_blank" rel="noopener noreferrer">Try prototype ↗</a>
               <a href="projects/uber.html">Case study →</a>
             </div>
-          </article>
+         
 
-          <article class="card project-card">
+          <div class="project-card">
             <div class="project-icon">
     <i data-lucide="shopping-cart"></i>
               <h3>Zepto — Increasing Average Order Value</h3>
-              <span class="project-number">GROWTH</span>
             </div>
             <p>
+</div>
               Segmented users, investigated purchase blockers, and prioritized
               potential solutions using the RICE framework.
             </p>
@@ -593,18 +589,17 @@ section {
               <a href="projects/zepto.html">Case study →</a>
               <a href="assets/documents/zepto-case-study.pdf" download>PDF ↓</a>
             </div>
-          </article>
-
-          <article class="card project-card">
+          
+          <div class="project-card">
             <div class="project-icon">
     <i data-lucide="layers"></i>
               <h3>Learnfinity — B2B Product Strategy</h3>
-              <span class="project-number">STRATEGY</span>
             </div>
             <p>
               Worked on target-segment definition, competitive differentiation,
               land-and-expand strategy, roadmap planning, and pricing.
             </p>
+</div>
             <div class="tag-list">
               <span class="tag">B2B SaaS</span>
               <span class="tag">GTM</span>
@@ -614,19 +609,19 @@ section {
               <a href="projects/learnfinity.html">Case study →</a>
               <a href="assets/documents/learnfinity-case-study.pdf" download>PDF ↓</a>
             </div>
-          </article>
+       
 
-          <article class="card project-card">
+          <div class="project-card">
             <div class="project-icon">
     <i data-lucide="heart-plus"></i>
               <h3>VitaFit — Retention and Repeat Booking</h3>
-              <span class="project-number">RETENTION</span>
             </div>
             <p>
               Explored retention challenges and potential interventions,
               including a personalized coach journey, community challenges,
               and instructor-focused functionality.
             </p>
+</div>
             <div class="tag-list">
               <span class="tag">Retention</span>
               <span class="tag">Problem Framing</span>
@@ -636,18 +631,18 @@ section {
               <a href="projects/vitafit.html">Case study →</a>
               <a href="assets/documents/vitafit-case-study.pdf" download>PDF ↓</a>
             </div>
-          </article>
+        
 
-          <article class="card project-card">
+          <div class="project-card">
   <div class="project-icon">
     <i data-lucide="bus"></i>
               <h3>Gamyam / TGSRTC — UX Evaluation</h3>
-              <span class="project-number">UX</span>
             </div>
             <p>
               Evaluated usability issues using Nielsen’s heuristics and UX
               laws, then developed recommendations for the experience.
             </p>
+</div>
             <div class="tag-list">
               <span class="tag">Usability</span>
               <span class="tag">UX Heuristics</span>
@@ -656,18 +651,18 @@ section {
               <a href="projects/gamyam.html">Case study →</a>
               <a href="assets/documents/gamyam-case-study.pdf" download>PDF ↓</a>
             </div>
-          </article>
+         
 
-          <article class="card project-card">
+          <div class="project-card">
   <div class="project-icon">
     <i data-lucide="sparkles"></i>
               <h3>Nykaa — UX Evaluation</h3>
-              <span class="project-number">UX</span>
             </div>
             <p>
               Reviewed the user journey and product features, including
               feedback from two non-PM/design users.
             </p>
+</div>
             <div class="tag-list">
               <span class="tag">User Journey</span>
               <span class="tag">Feature Evaluation</span>
@@ -676,18 +671,18 @@ section {
               <a href="projects/nykaa.html">Case study →</a>
               <a href="assets/documents/nykaa-case-study.pdf" download>PDF ↓</a>
             </div>
-          </article>
+      
 
-          <article class="card project-card">
+          <div class="project-card">
   <div class="project-icon">
     <i data-lucide="globe"></i>
               <h3>Airbnb India — Product-Led Growth</h3>
-              <span class="project-number">GROWTH</span>
             </div>
             <p>
               Explored growth loops, flywheels, MVP hypotheses, prototype
               concepts, success metrics, and revenue models.
             </p>
+</div>
             <div class="tag-list">
               <span class="tag">PLG</span>
               <span class="tag">MVP</span>
@@ -697,18 +692,19 @@ section {
               <a href="projects/airbnb-india.html">Case study →</a>
               <a href="assets/documents/airbnb-india-case-study.pdf" download>PDF ↓</a>
             </div>
-          </article>
+         
 
-          <article class="card project-card">
+          <div class="project-card">
   <div class="project-icon">
     <i data-lucide="chart-no-axes-combined"></i>
               <h3>Zomato — Funnel and Product Metrics</h3>
-              <span class="project-number">METRICS</span>
+              
             </div>
             <p>
               Mapped a seven-stage funnel, explored conversion hypotheses
               and retention, and defined a North Star Metric framework.
             </p>
+</div>
             <div class="tag-list">
               <span class="tag">Funnels</span>
               <span class="tag">Cohorts</span>
@@ -718,18 +714,18 @@ section {
               <a href="projects/zomato.html">Case study →</a>
               <a href="assets/documents/zomato-case-study.pdf" download>PDF ↓</a>
             </div>
-          </article>
+     
 
-          <article class="card project-card">
+          <div class="card project-card">
   <div class="project-icon">
     <i data-lucide="bot"></i>
               <h3>AI Support Ops Assistant</h3>
-              <span class="project-number">AI DESIGN</span>
             </div>
             <p>
               Classified support capabilities as skills, agents, or neither,
               then designed and tested representative workflows.
             </p>
+</div>
             <div class="tag-list">
               <span class="tag">AI Agents</span>
               <span class="tag">Workflow Design</span>
@@ -738,18 +734,18 @@ section {
               <a href="projects/ai-support-ops.html">Case study →</a>
               <a href="assets/documents/ai-support-ops-case-study.pdf" download>PDF ↓</a>
             </div>
-          </article>
+       
 
-          <article class="card project-card">
+          <div class="project-card">
   <div class="project-icon">
     <i data-lucide="graduation-cap"></i>
               <h3>Tech 101 — Learning Recommendation System</h3>
-              <span class="project-number">SYSTEM DESIGN</span>
             </div>
             <p>
               Defined user stories, core functionality, non-functional
               requirements, design trade-offs, and future extensions.
             </p>
+</div>
             <div class="tag-list">
               <span class="tag">Requirements</span>
               <span class="tag">System Design</span>
@@ -758,18 +754,17 @@ section {
               <a href="projects/learning-recommendation-system.html">Case study →</a>
               <a href="assets/documents/learning-recommendation-system.pdf" download>PDF ↓</a>
             </div>
-          </article>
 
-          <article class="card project-card">
+          <div class="card project-card">
   <div class="project-icon">
     <i data-lucide="file-text"></i>
               <h3>Reusable PRD Generator — System Prompt Design</h3>
-              <span class="project-number">PROMPT DESIGN</span>
             </div>
             <p>
               Designed a reusable system prompt for a PRD-writing assistant
               and applied it to generate a product requirements document.
             </p>
+</div>
             <div class="tag-list">
               <span class="tag">Prompt Engineering</span>
               <span class="tag">PRD</span>
@@ -779,10 +774,7 @@ section {
               <a href="projects/prd-generator.html">Case study →</a>
               <a href="assets/documents/prd-generator-case-study.pdf" download>PDF ↓</a>
             </div>
-          </article>
-        </div>
-
-        <p class="small-note" style="margin-top:22px">
+             <p class="small-note" style="margin-top:22px">
           Project links will work after their corresponding HTML and PDF files
           have been added to the repository. No unsupported project outcomes
           are claimed on this homepage.
@@ -1013,10 +1005,5 @@ section {
     document.getElementById("year").textContent = new Date().getFullYear();
     updateThemeButton();
   </script>
-  <script>
-  if (window.lucide) {
-    lucide.createIcons();
-  }
-</script>
 </body>
 </html>
