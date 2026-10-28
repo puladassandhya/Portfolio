@@ -2,1008 +2,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Product Management portfolio of Sandhya Priyanka — product case studies, user research, strategy, prioritization, and AI product development.">
-  <title>Sandhya Priyanka | Product Management Portfolio</title>
-
-  <script>
-    (() => {
-      const saved = localStorage.getItem("portfolio-theme");
-      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.dataset.theme =
-        saved || (systemDark ? "dark" : "light");
-    })();
-  </script>
-
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f8f9fc;
-      --surface: #ffffff;
-      --surface-alt: #eef2f8;
-      --text: #192338;
-      --muted: #606b80;
-      --border: #dfe5ef;
-      --accent: #5546d7;
-      --accent-hover: #4032b4;
-      --tag-bg: #ece9ff;
-      --tag-text: #4235a7;
-      --shadow: 0 8px 28px rgba(28, 39, 68, .07);
-    }
-
-    html[data-theme="dark"] {
-      color-scheme: dark;
-      --bg: #101522;
-      --surface: #191f30;
-      --surface-alt: #222a3e;
-      --text: #f0f3fb;
-      --muted: #b0bbcf;
-      --border: #303a50;
-      --accent: #a69aff;
-      --accent-hover: #c3baff;
-      --tag-bg: #302b52;
-      --tag-text: #d4ccff;
-      --shadow: 0 8px 28px rgba(0, 0, 0, .18);
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      line-height: 1.65;
-      transition: background .2s, color .2s;
-    }
-
-    a { color: var(--accent); }
-
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    .container {
-      width: min(1120px, 90%);
-      margin-inline: auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      min-height: 72px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .brand {
-      color: var(--text);
-      font-weight: 800;
-      text-decoration: none;
-      letter-spacing: -.4px;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    .theme-toggle, .button {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 15px;
-      font: inherit;
-      font-weight: 650;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .theme-toggle {
-      color: var(--text);
-      background: var(--surface-alt);
-    }
-
-    .button-primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-    }
-
-    .button-primary:hover { opacity: .9; }
-
-    .button-secondary {
-      background: var(--surface);
-      color: var(--text);
-    }
-
-    .hero { padding: 86px 0 66px; }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 1.8px;
-      color: var(--accent);
-      font-weight: 800;
-      font-size: .78rem;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 4.4rem);
-      letter-spacing: -2px;
-      line-height: 1.08;
-      max-width: 850px;
-      margin: 14px 0 20px;
-    }
-
-    h2 {
-      font-size: clamp(1.65rem, 3vw, 2.25rem);
-      line-height: 1.2;
-      letter-spacing: -.6px;
-      margin: 0 0 12px;
-    }
-
-    h3 { line-height: 1.3; }
-
-    .hero p {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 40px;
-      max-width: 780px;
-    }
-
-    .stat {
-      padding: 18px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.35rem;
-    }
-
-    .stat span { color: var(--muted); font-size: .88rem; }
-
-    section { padding: 60px 0; }
-
-    .section-intro {
-      color: var(--muted);
-      max-width: 740px;
-      margin: 0 0 28px;
-    }
-
-    .about-grid, .project-grid, .cert-grid, .experience-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      min-width: 0;
-    }
-
-    .card h3 { margin: 0 0 10px; }
-
-    .card p {
-      color: var(--muted);
-      margin: 0 0 16px;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 16px 0;
-    }
-
-    .tag {
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      border-radius: 999px;
-      padding: 5px 10px;
-      font-size: .78rem;
-      font-weight: 650;
-    }
-
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .project-number {
-      color: var(--accent);
-      font-size: .8rem;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .project-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 18px;
-      font-weight: 700;
-      font-size: .93rem;
-    }
-
-    .project-links a { text-decoration: none; }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .skill-group {
-      padding: 20px;
-      background: var(--surface-alt);
-      border-radius: 14px;
-    }
-
-    .skill-group h3 { margin-top: 0; }
-
-    .skill-group p {
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    .certificate-mark {
-      display: inline-grid;
-      place-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      font-weight: 850;
-      margin-bottom: 12px;
-    }
-
-    .small-note {
-      color: var(--muted);
-      font-size: .88rem;
-    }
-
-    .contact-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: clamp(24px, 5vw, 42px);
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    footer {
-      padding: 28px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    @media (max-width: 760px) {
-      .nav { padding: 14px 0; align-items: flex-start; }
-      .nav-links { gap: 10px; justify-content: flex-end; }
-      .nav-links a { font-size: .82rem; }
-      .about-grid, .project-grid, .cert-grid, .experience-grid,
-      .skills-grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 58px; }
-      .stats { grid-template-columns: 1fr; }
-      .theme-toggle { padding: 8px 10px; }
-    }
-
-    @media (max-width: 480px) {
-      .nav { flex-direction: column; }
-      .nav-links { justify-content: flex-start; }
-      h1 { letter-spacing: -1px; }
-      .card { padding: 20px; }
-    }
-
-/* Fix project card alignment and title overflow */
-.project-card {
-  box-sizing: border-box;
-  min-width: 0;
-  overflow-wrap: anywhere;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-}
-
-/* Keep titles inside project cards */
-.project-card h3 {
-  max-width: 100%;
-  box-sizing: border-box;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
-  margin-top: 0;
-}
-
-/* Keep descriptions and links inside cards */
-.project-card p,
-.project-card a {
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: anywhere;
-}
-
-/* Style the project icons consistently */
-.project-icon {
-  width: 46px;
-  height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: var(--tag-bg);
-  color: var(--accent);
-  border-radius: 12px;
-  margin-bottom: 16px;
-}
-
-.project-icon svg {
-  width: 23px;
-  height: 23px;
-  stroke-width: 1.8;
-}
-  </style>
-<script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Product Management portfolio featuring product case studies, OutLoud, and Smart Pickup prototype work.">
+<title>Product Management Portfolio</title>
+<style>
+:root{color-scheme:light dark;--bg:#f7f8fc;--surface:#fff;--text:#172033;--muted:#596579;--line:#e2e7f0;--accent:#5546d7;--soft:#eeecff;--shadow:0 8px 28px rgba(20,30,60,.06)}
+:root[data-theme="dark"]{--bg:#10131c;--surface:#191e2b;--text:#f2f4fa;--muted:#b0b8ca;--line:#30384a;--accent:#b0a7ff;--soft:#292443;--shadow:0 8px 28px rgba(0,0,0,.18)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10131c;--surface:#191e2b;--text:#f2f4fa;--muted:#b0b8ca;--line:#30384a;--accent:#b0a7ff;--soft:#292443;--shadow:0 8px 28px rgba(0,0,0,.18)}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.container{width:min(1120px,92%);margin:auto}
+.topbar{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.brand{font-weight:800;color:var(--text);text-decoration:none}
+.navlinks{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.navlinks a{color:var(--muted);text-decoration:none;font-size:.94rem}
+.theme-toggle,.button{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:12px;padding:9px 13px;font:inherit;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.button.primary{background:var(--accent);border-color:var(--accent);color:white}
+.hero{padding:76px 0 54px}
+.eyebrow{color:var(--accent);font-size:.82rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.hero h1{font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.08;letter-spacing:-.045em;max-width:850px;margin:14px 0}
+.hero p{max-width:760px;color:var(--muted);font-size:1.12rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.section{padding:40px 0 28px}
+.section-heading{margin-bottom:22px}
+.section-heading h2{font-size:clamp(1.65rem,3vw,2.3rem);letter-spacing:-.025em;margin:0}
+.section-heading p{color:var(--muted);margin:7px 0 0}
+.skills{display:flex;gap:9px;flex-wrap:wrap}
+.chip{padding:6px 11px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font-size:.9rem}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.project-card{min-width:0;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.project-icon{width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;border-radius:13px;background:var(--soft);color:var(--accent);margin-bottom:15px}
+.project-icon svg{width:24px;height:24px;display:block;stroke:currentColor;fill:none;stroke-width:1.8}
+.project-card h3{font-size:1.18rem;line-height:1.35;margin:0 0 8px;overflow-wrap:anywhere}
+.focus{color:var(--accent);font-size:.77rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.project-card p{color:var(--muted);margin:0 0 12px;overflow-wrap:anywhere}
+.project-card h4{font-size:.9rem;margin:8px 0 3px}
+.project-card ul{padding-left:20px;margin:0 0 10px;color:var(--muted)}
+.project-card li{margin:3px 0}
+.project-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:14px}
+.project-actions a{font-size:.9rem}
+.work-item{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.work-item:last-child{border-bottom:0}
+.work-date{color:var(--accent);font-weight:700}
+.work-item h3{margin:0 0 5px}
+.work-item p{margin:4px 0;color:var(--muted)}
+.cert-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.cert{border:1px solid var(--line);background:var(--surface);padding:20px;border-radius:16px}
+.cert h3{margin:0 0 5px}
+.cert p{color:var(--muted);margin:0}
+.contact-panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px}
+.contact-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.contact-links a{display:inline-flex;gap:9px;align-items:center;text-decoration:none;border:1px solid var(--line);padding:10px 13px;border-radius:12px;color:var(--text)}
+.contact-links svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+footer{padding:36px 0;color:var(--muted);font-size:.9rem}
+.note{font-size:.88rem;color:var(--muted)}
+@media(max-width:760px){.nav{align-items:flex-start;padding:12px 0;flex-direction:column}.navlinks{gap:12px}.hero{padding-top:48px}.project-grid,.cert-grid{grid-template-columns:1fr}.work-item{grid-template-columns:1fr;gap:5px}}
+</style>
 </head>
-
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#home">Sandhya Priyanka</a>
-
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-        <button class="theme-toggle" id="themeToggle"
-                type="button" aria-label="Switch color theme">
-          <span id="themeIcon" aria-hidden="true">☾</span>
-          <span id="themeLabel">Dark mode</span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="eyebrow">Product Management Portfolio</div>
-        <h1>Turning user problems into meaningful product solutions.</h1>
-        <p>
-          I’m an aspiring Product Manager with 7.5 years of overall experience
-          across Business Analysis and academia, including 3+ years in Business
-          Analyst roles. I bring a foundation in stakeholder collaboration,
-          requirements, problem-solving, and translating business needs into
-          actionable solutions.
-        </p>
-        <p>
-          Through hands-on Product Management projects and OutLoud, my AI-powered
-          speaking coach, I have applied user research, product discovery,
-          prioritization, PRD development, prototyping, and product metrics.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#projects">Explore case studies ↗</a>
-          <a class="button button-secondary"
-             href="assets/resume/Sandhya-Priyanka-Resume.pdf" download>
-            Download resume ↓
-          </a>
-          <a class="button button-secondary"
-             href="https://www.linkedin.com/in/sandhya-priyanka-96737687/"
-             target="_blank" rel="noopener noreferrer">
-            LinkedIn ↗
-          </a>
-        </div>
-
-        <div class="stats" aria-label="Portfolio highlights">
-          <div class="stat">
-            <strong>11</strong>
-            <span>Product case studies</span>
-          </div>
-          <div class="stat">
-            <strong>50+</strong>
-            <span>OutLoud early testers/signups reported in project work</span>
-          </div>
-          <div class="stat">
-            <strong>2</strong>
-            <span>Professional certifications</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <h2>About me</h2>
-        <p class="section-intro">
-          A blend of Business Analysis experience, product-building practice,
-          and customer-focused ownership.
-        </p>
-        <div class="about-grid">
-          <article class="card">
-            <h3>My product approach</h3>
-            <p>
-              I enjoy understanding user problems, organizing research insights,
-              framing opportunities, and translating needs into product
-              requirements and practical solutions. My project work covers
-              prioritization, product strategy, metrics, growth, and prototypes.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Building and learning through practice</h3>
-            <p>
-              I built and deployed OutLoud, an AI-powered speaking coach for
-              interview readiness, and run Elim Foods, a small food venture.
-              These experiences have helped me practice ownership, customer
-              feedback, execution, and continuous improvement.
-            </p>
-            <p class="small-note">
-              Product Management work shown here is project-based; it is not
-              represented as previous employment as a Product Manager.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2>Featured projects and case studies</h2>
-        <p class="section-intro">
-          Explore the problem, research, decisions, frameworks, and deliverables
-          for each project. Detailed pages and downloadable PDFs will be added
-          as the portfolio files are prepared.
-        </p>
-
-        <div class="project-grid">
-<article class="card project-card">
-  <div class="project-icon">
-    <i data-lucide="mic"></i>
-  </div>
-
-  <div class="project-top">
-    <h3>OutLoud — AI Speaking Coach</h3>
-    <span class="project-number">BUILD</span>
-  </div>
-            <p>
-              Identified interview-speaking challenges, developed a PRD,
-              built a live AI voice product, and defined activation, retention,
-              and engagement metrics.
-            </p>
-            <div class="tag-list">
-              <span class="tag">AI Product</span>
-              <span class="tag">PRD</span>
-              <span class="tag">Metrics</span>
-              <span class="tag">Execution</span>
-            </div>
-            <div class="project-links">
-              <a href="https://out-loud-speaking-coach--sandhyapuladas.replit.app/"
-                 target="_blank" rel="noopener noreferrer">Try prototype ↗</a>
-              <a href="projects/outloud.html">Case study →</a>
-            </div>
-          
-
-<div class="project-card">
-  <div class="project-icon">
-    <i data-lucide="map-pin"></i>
-  </div>
-
-  <h3>Uber Smart Pickup</h3>
-  
-<p>Improving the rider pickup experience.</p>
-  </div>            
-<div class="tag-list">
-              <span class="tag">User Research</span>
-              <span class="tag">TAM/SAM/SOM</span>
-              <span class="tag">Prototype</span>
-            </div>
-            <div class="project-links">
-              <a href="https://smart-pickup-hub.replit.app/"
-                 target="_blank" rel="noopener noreferrer">Try prototype ↗</a>
-              <a href="projects/uber.html">Case study →</a>
-            </div>
-         
-
-          <div class="project-card">
-            <div class="project-icon">
-    <i data-lucide="shopping-cart"></i>
-              <h3>Zepto — Increasing Average Order Value</h3>
-            </div>
-            <p>
+<header class="topbar">
+<div class="container nav">
+<a class="brand" href="#home">Product Management Portfolio</a>
+<nav class="navlinks" aria-label="Main navigation">
+<a href="#case-studies">Case Studies</a>
+<a href="#work-experience">Work Experience</a>
+<a href="#education">Education</a>
+<a href="#certifications">Certifications</a>
+<a href="#contact">Contact</a>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">◐ <span id="themeLabel">Dark mode</span></button>
+</nav>
 </div>
-              Segmented users, investigated purchase blockers, and prioritized
-              potential solutions using the RICE framework.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Research</span>
-              <span class="tag">Segmentation</span>
-              <span class="tag">RICE</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/zepto.html">Case study →</a>
-              <a href="assets/documents/zepto-case-study.pdf" download>PDF ↓</a>
-            </div>
-          
-          <div class="project-card">
-            <div class="project-icon">
-    <i data-lucide="layers"></i>
-              <h3>Learnfinity — B2B Product Strategy</h3>
-            </div>
-            <p>
-              Worked on target-segment definition, competitive differentiation,
-              land-and-expand strategy, roadmap planning, and pricing.
-            </p>
+</header>
+<main>
+<section class="hero" id="home">
+<div class="container">
+<div class="eyebrow">Product thinking · User problems · Practical solutions</div>
+<h1>Turning user problems into meaningful product solutions.</h1>
+<p>I bring 7.5 years of overall experience across academia and Business Analysis, with strengths in problem-solving, stakeholder collaboration, and bridging business needs with technology. I have completed AI-First Product Management training and worked on product case studies spanning discovery, strategy, UX, prioritization, metrics, and AI-enabled solutions.</p>
+<div class="actions"><a class="button primary" href="#case-studies">Explore all case studies</a></div>
 </div>
-            <div class="tag-list">
-              <span class="tag">B2B SaaS</span>
-              <span class="tag">GTM</span>
-              <span class="tag">Roadmap</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/learnfinity.html">Case study →</a>
-              <a href="assets/documents/learnfinity-case-study.pdf" download>PDF ↓</a>
-            </div>
-       
+</section>
 
-          <div class="project-card">
-            <div class="project-icon">
-    <i data-lucide="heart-plus"></i>
-              <h3>VitaFit — Retention and Repeat Booking</h3>
-            </div>
-            <p>
-              Explored retention challenges and potential interventions,
-              including a personalized coach journey, community challenges,
-              and instructor-focused functionality.
-            </p>
+<section class="section">
+<div class="container">
+<div class="section-heading"><h2>Product Management Skills</h2><p>Methods and capabilities demonstrated through the case studies below.</p></div>
+<div class="skills">
+<span class="chip">User research</span><span class="chip">Problem framing</span><span class="chip">Product strategy</span><span class="chip">PRD writing</span><span class="chip">RICE prioritization</span><span class="chip">UX evaluation</span><span class="chip">Growth strategy</span><span class="chip">Product metrics</span><span class="chip">System design</span><span class="chip">AI tool scoping</span><span class="chip">Prototyping</span>
 </div>
-            <div class="tag-list">
-              <span class="tag">Retention</span>
-              <span class="tag">Problem Framing</span>
-              <span class="tag">PRD</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/vitafit.html">Case study →</a>
-              <a href="assets/documents/vitafit-case-study.pdf" download>PDF ↓</a>
-            </div>
-        
-
-          <div class="project-card">
-  <div class="project-icon">
-    <i data-lucide="bus"></i>
-              <h3>Gamyam / TGSRTC — UX Evaluation</h3>
-            </div>
-            <p>
-              Evaluated usability issues using Nielsen’s heuristics and UX
-              laws, then developed recommendations for the experience.
-            </p>
 </div>
-            <div class="tag-list">
-              <span class="tag">Usability</span>
-              <span class="tag">UX Heuristics</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/gamyam.html">Case study →</a>
-              <a href="assets/documents/gamyam-case-study.pdf" download>PDF ↓</a>
-            </div>
-         
+</section>
 
-          <div class="project-card">
-  <div class="project-icon">
-    <i data-lucide="sparkles"></i>
-              <h3>Nykaa — UX Evaluation</h3>
-            </div>
-            <p>
-              Reviewed the user journey and product features, including
-              feedback from two non-PM/design users.
-            </p>
+<section class="section" id="case-studies">
+<div class="container">
+<div class="section-heading"><h2>Product Case Studies</h2><p>All case studies are listed once below. Open a case-study PDF for supporting detail when the matching file is available in the repository.</p></div>
+<div class="project-grid">
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="activity"></i></div>
+<div class="focus">PRD writing & communication</div>
+<h3>VitaFit — Gamification & Retention</h3>
+<p>Addressing poor retention and repeat bookings for an on-demand fitness platform.</p>
+<h4>Work covered</h4>
+<ul><li>Diagnosed likely drop-off causes and synthesized user insights.</li><li>Proposed a Personalized Coach Journey, instructor-led community challenges, and a supporting instructor module.</li><li>Created a PRD and wireframes.</li></ul>
+<div class="project-actions"><a href="pdfs/VitaFit.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="shopping-cart"></i></div>
+<div class="focus">Problem framing & prioritization</div>
+<h3>Zepto — Increasing Average Order Value</h3>
+<p>Exploring basket-size growth as a lever for revenue growth in quick commerce.</p>
+<h4>Work covered</h4>
+<ul><li>Combined primary research and industry benchmarking.</li><li>Segmented users and identified barriers to higher basket value.</li><li>Prioritized proposed solutions using RICE.</li></ul>
+<div class="project-actions"><a href="pdfs/Zepto.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="map-pin"></i></div>
+<div class="focus">Problem discovery & market research</div>
+<h3>Uber — Find My Ride / Smart Pickup</h3>
+<p>Improving pickup coordination in complex locations such as IT parks, airports, and malls.</p>
+<h4>Work covered</h4>
+<ul><li>Conducted TAM/SAM/SOM sizing and competitor research.</li><li>Used surveys to segment users and identify strategy implications.</li><li>Built and tested a prototype with five users.</li></ul>
+<div class="project-actions"><a href="pdfs/Uber-Smart-Pickup.pdf">Case study PDF ↗</a><a href="https://smart-pickup-hub.replit.app/" target="_blank" rel="noopener noreferrer">View prototype ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="layers"></i></div>
+<div class="focus">Product strategy</div>
+<h3>Learnfinity — B2B Product Strategy</h3>
+<p>Developing a strategy for corporate learning focused on career outcomes and measurable value.</p>
+<h4>Work covered</h4>
+<ul><li>Used employee interviews to identify root causes.</li><li>Defined target segments, differentiation, and defensible product advantages.</li><li>Outlined a Land & Expand go-to-market motion and three-year roadmap.</li></ul>
+<div class="project-actions"><a href="pdfs/Learnfinity.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="bus"></i></div>
+<div class="focus">UX & design collaboration</div>
+<h3>Gamyam (TGSRTC) — Digital User Flows</h3>
+<p>Evaluating usability issues in a live bus-tracking app's core user flow.</p>
+<h4>Work covered</h4>
+<ul><li>Reviewed selected flows using Nielsen's usability heuristics and UX laws.</li><li>Mapped issues to relevant principles.</li><li>Proposed targeted improvements to reduce friction and improve clarity.</li></ul>
+<div class="project-actions"><a href="pdfs/Gamyam.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="sparkles"></i></div>
+<div class="focus">UX evaluation</div>
+<h3>Nykaa — User Experience Analysis</h3>
+<p>Reviewing the journey from product search through cart and checkout for a skincare purchase.</p>
+<h4>Work covered</h4>
+<ul><li>Mapped the end-to-end user journey.</li><li>Evaluated three features and documented positive and negative observations.</li><li>Interviewed two non-PM/design users about preferences and drop-off reasons.</li></ul>
+<div class="project-actions"><a href="pdfs/Nykaa.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="globe"></i></div>
+<div class="focus">Product-led growth strategy</div>
+<h3>Airbnb India — Launch, Growth & Monetization</h3>
+<p>Creating a product-led growth strategy across stays, experiences, and trip logistics.</p>
+<h4>Work covered</h4>
+<ul><li>Proposed cross-functional growth initiatives and product-embedded growth loops.</li><li>Designed an MVP with hypotheses and success metrics.</li><li>Reviewed revenue-model considerations for India.</li></ul>
+<div class="project-actions"><a href="pdfs/Airbnb-India.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="chart-no-axes-combined"></i></div>
+<div class="focus">Growth & metrics design</div>
+<h3>Zomato — Growth & Product Metrics</h3>
+<p>Identifying opportunities to improve engagement and retention across the food-delivery journey.</p>
+<h4>Work covered</h4>
+<ul><li>Mapped a seven-stage conversion funnel and proposed hypotheses.</li><li>Defined user cohorts and retention hypotheses.</li><li>Selected a North Star Metric and supporting metrics.</li></ul>
+<div class="project-actions"><a href="pdfs/Zomato.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="bot"></i></div>
+<div class="focus">AI tool scoping & build</div>
+<h3>AI Support Ops Assistant — Skill vs. Agent</h3>
+<p>Choosing suitable AI building blocks for common support operations.</p>
+<h4>Work covered</h4>
+<ul><li>Mapped five support capabilities to Skill, Agent, or Neither.</li><li>Built at least one Skill and one Agent with independent scopes.</li><li>Tested the components against realistic inputs.</li></ul>
+<div class="project-actions"><a href="pdfs/AI-Support-Ops-Assistant.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="graduation-cap"></i></div>
+<div class="focus">Technical requirements & system design</div>
+<h3>Tech 101 — Learning Recommendation System</h3>
+<p>Designing a personalized course recommendation system for learners, instructors, and admins.</p>
+<h4>Work covered</h4>
+<ul><li>Wrote user stories and prioritized core functionality by user type.</li><li>Outlined non-functional requirements, architecture, and integrations.</li><li>Documented a major design trade-off, assumptions, and future extensions.</li></ul>
+<div class="project-actions"><a href="pdfs/Learning-Recommendation-System.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="file-text"></i></div>
+<div class="focus">Prompt engineering as process design</div>
+<h3>AI Prompt Design — Reusable PRD Generator</h3>
+<p>Creating a reusable system prompt for an LLM to produce a structured product requirements document.</p>
+<h4>Work covered</h4>
+<ul><li>Defined role, PRD structure, tone, guardrails, formatting, and clarification behavior.</li><li>Used the prompt to generate a PRD for an online education course-discovery problem.</li></ul>
+<div class="project-actions"><a href="pdfs/Reusable-PRD-Generator.pdf">Case study PDF ↗</a></div>
+</article>
+
+<article class="project-card">
+<div class="project-icon"><i data-icon="mic"></i></div>
+<div class="focus">AI product · Speaking practice</div>
+<h3>OutLoud — AI-Powered Speaking Coach</h3>
+<p>A practice experience designed to help learners build confidence in everyday English and interview conversations. Tested by 50+ users with an average feedback rating of 4.5/5.</p>
+<h4>Product work</h4>
+<ul><li>Explored user needs, practice flows, feedback, and engagement indicators.</li><li>Worked on product scoping and prototype iteration.</li></ul>
+<div class="project-actions"><a href="https://out-loud-speaking-coach--sandhyapuladas.replit.app/" target="_blank" rel="noopener noreferrer">View prototype ↗</a></div>
+</article>
+
 </div>
-            <div class="tag-list">
-              <span class="tag">User Journey</span>
-              <span class="tag">Feature Evaluation</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/nykaa.html">Case study →</a>
-              <a href="assets/documents/nykaa-case-study.pdf" download>PDF ↓</a>
-            </div>
-      
-
-          <div class="project-card">
-  <div class="project-icon">
-    <i data-lucide="globe"></i>
-              <h3>Airbnb India — Product-Led Growth</h3>
-            </div>
-            <p>
-              Explored growth loops, flywheels, MVP hypotheses, prototype
-              concepts, success metrics, and revenue models.
-            </p>
+<p class="note">PDF links use the filenames shown. Upload the matching PDFs into a <code>pdfs</code> folder in the GitHub repository for these links to open correctly. Prototype links are intentionally provided only for OutLoud and Uber Smart Pickup.</p>
 </div>
-            <div class="tag-list">
-              <span class="tag">PLG</span>
-              <span class="tag">MVP</span>
-              <span class="tag">Metrics</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/airbnb-india.html">Case study →</a>
-              <a href="assets/documents/airbnb-india-case-study.pdf" download>PDF ↓</a>
-            </div>
-         
+</section>
 
-          <div class="project-card">
-  <div class="project-icon">
-    <i data-lucide="chart-no-axes-combined"></i>
-              <h3>Zomato — Funnel and Product Metrics</h3>
-              
-            </div>
-            <p>
-              Mapped a seven-stage funnel, explored conversion hypotheses
-              and retention, and defined a North Star Metric framework.
-            </p>
+<section class="section" id="work-experience">
+<div class="container">
+<div class="section-heading"><h2>Work Experience</h2><p>Professional experience across entrepreneurship, business analysis, and academia. Product case studies are listed separately.</p></div>
+
+<div class="work-item">
+<div class="work-date">Nov 2025 – Present</div>
+<div><h3>Founder and Product Owner</h3><p><strong>Elim Foods</strong> · Hyderabad, Telangana</p><p>Manage Elim Foods end to end, from product positioning and pricing to launch, customer feedback, and improvement planning. Since launching in November 2025, the venture has fulfilled 50+ orders, with repeat customers placing 2–6 orders each.</p></div>
 </div>
-            <div class="tag-list">
-              <span class="tag">Funnels</span>
-              <span class="tag">Cohorts</span>
-              <span class="tag">North Star Metric</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/zomato.html">Case study →</a>
-              <a href="assets/documents/zomato-case-study.pdf" download>PDF ↓</a>
-            </div>
-     
 
-          <div class="card project-card">
-  <div class="project-icon">
-    <i data-lucide="bot"></i>
-              <h3>AI Support Ops Assistant</h3>
-            </div>
-            <p>
-              Classified support capabilities as skills, agents, or neither,
-              then designed and tested representative workflows.
-            </p>
+<div class="work-item">
+<div class="work-date">Feb 2024 – Jul 2025</div>
+<div><h3>Senior Business Analyst</h3><p><strong>SoulPage IT Solutions Pvt Ltd</strong> · Hyderabad, Telangana</p><p>Connected global clients, Sales, and development teams; supported business-needs assessments and product planning. Documented requirements and prepared BRD, FRD, SRS, user manuals, and product documentation, while supporting test scenarios and UAT.</p></div>
 </div>
-            <div class="tag-list">
-              <span class="tag">AI Agents</span>
-              <span class="tag">Workflow Design</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/ai-support-ops.html">Case study →</a>
-              <a href="assets/documents/ai-support-ops-case-study.pdf" download>PDF ↓</a>
-            </div>
-       
 
-          <div class="project-card">
-  <div class="project-icon">
-    <i data-lucide="graduation-cap"></i>
-              <h3>Tech 101 — Learning Recommendation System</h3>
-            </div>
-            <p>
-              Defined user stories, core functionality, non-functional
-              requirements, design trade-offs, and future extensions.
-            </p>
+<div class="work-item">
+<div class="work-date">Jan 2023 – Aug 2023</div>
+<div><h3>Assistant Professor (Business Analyst)</h3><p><strong>Sreenidhi Institute of Science and Technology</strong> · Hyderabad, Telangana</p><p><strong>Project:</strong> Learn Majestic · <strong>Tools:</strong> JIRA, MS Visio</p><p>For the Learn Majestic project, gathered stakeholder requirements, wrote user stories and acceptance criteria, and managed the JIRA backlog. Prioritized requirements using MoSCoW and FURPS and collaborated on sprint planning and delivery checklists.</p></div>
 </div>
-            <div class="tag-list">
-              <span class="tag">Requirements</span>
-              <span class="tag">System Design</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/learning-recommendation-system.html">Case study →</a>
-              <a href="assets/documents/learning-recommendation-system.pdf" download>PDF ↓</a>
-            </div>
 
-          <div class="card project-card">
-  <div class="project-icon">
-    <i data-lucide="file-text"></i>
-              <h3>Reusable PRD Generator — System Prompt Design</h3>
-            </div>
-            <p>
-              Designed a reusable system prompt for a PRD-writing assistant
-              and applied it to generate a product requirements document.
-            </p>
+<div class="work-item">
+<div class="work-date">Oct 2017 – Jan 2023</div>
+<div><h3>Assistant Professor (Business Analyst)</h3><p><strong>Malla Reddy Group of Institutions</strong> · Hyderabad, Telangana</p><p><strong>Project:</strong> Book Bureau · <strong>Tools:</strong> Axure 7.0, MS Visio</p><p>For the Book Bureau project, conducted stakeholder analysis and gathered business requirements, preparing business case and requirements documentation. Created UML diagrams and wireframes, maintained the requirements traceability matrix, and supported test scenarios and UAT.</p></div>
 </div>
-            <div class="tag-list">
-              <span class="tag">Prompt Engineering</span>
-              <span class="tag">PRD</span>
-              <span class="tag">AI</span>
-            </div>
-            <div class="project-links">
-              <a href="projects/prd-generator.html">Case study →</a>
-              <a href="assets/documents/prd-generator-case-study.pdf" download>PDF ↓</a>
-            </div>
-             <p class="small-note" style="margin-top:22px">
-          Project links will work after their corresponding HTML and PDF files
-          have been added to the repository. No unsupported project outcomes
-          are claimed on this homepage.
-        </p>
-      </div>
-    </section>
 
-    <section id="skills">
-      <div class="container">
-        <h2>Product and professional skills</h2>
-        <p class="section-intro">
-          Skills reflected in the resume and hands-on project work.
-        </p>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Product Management</h3>
-            <p>
-              User research, survey design, personas, problem framing, PRDs,
-              user stories, acceptance criteria, RICE, MoSCoW, roadmaps,
-              North Star Metrics, GTM planning, and TAM/SAM/SOM.
-            </p>
-          </div>
-          <div class="skill-group">
-            <h3>Business Analysis</h3>
-            <p>
-              Requirements elicitation, BRD, FRD, SRS, RTM, stakeholder
-              analysis, business cases, RACI, UAT, change requests,
-              Agile Scrum, and Waterfall.
-            </p>
-          </div>
-          <div class="skill-group">
-            <h3>Tools and Technology</h3>
-            <p>
-              JIRA, Confluence, SQL, PostgreSQL, Power BI, Tableau, Figma,
-              Axure, Balsamiq, MS Visio, Replit, Deepgram Voice Agent API,
-              and Microsoft 365 Copilot.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+</div>
+</section>
 
-    <section id="certifications">
-      <div class="container">
-        <h2>Certifications</h2>
-        <p class="section-intro">
-          Both my Business Analysis and Product Management certifications
-          are listed separately.
-        </p>
+<section class="section" id="education">
+<div class="container">
+<div class="section-heading"><h2>Education</h2><p>Academic qualifications and completed Product Management program.</p></div>
+<div class="cert-grid">
+<article class="cert"><h3>Program in AI-First Product Management</h3><p>Airtribe · June 2026 batch</p><p class="note">Hands-on program covering research, PRDs, presentations, and prototypes across product case studies; capstone: OutLoud.</p></article>
+<article class="cert"><h3>Master of Technology (M.Tech)</h3><p>Computer & Communication Engineering</p><p>Karunya University, Coimbatore · 2013–2015</p></article>
+</div>
+</div>
+</section>
 
-        <div class="cert-grid">
-          <article class="card">
-            <div class="certificate-mark" aria-hidden="true">BA</div>
-            <h3>Certified IT-Business Analyst (IIBA EEP)</h3>
-            <p><strong>Issuing organization:</strong> COEPD</p>
-            <p><strong>Year:</strong> 2023</p>
-            <p>
-              Business Analysis certification supporting my foundation in
-              requirements, stakeholder collaboration, and business needs.
-            </p>
-            <p class="small-note">
-              The credential title is reproduced from the uploaded resume.
-            </p>
-          </article>
+<section class="section" id="certifications">
+<div class="container">
+<div class="section-heading"><h2>Certifications</h2><p>Completed certifications.</p></div>
+<div class="cert-grid">
+<article class="cert"><h3>Certified AI - First Product Manager</h3><p>Airtribe · 2026</p></article>
+<article class="cert"><h3>Certified IT-Business Analyst (IIBA EEP)</h3><p>COEPD · 2023</p></article>
+</div>
+</div>
+</section>
 
-          <article class="card">
-            <div class="certificate-mark" aria-hidden="true">PM</div>
-            <h3>Certified AI-First Product Manager</h3>
-            <p><strong>Issuing organization:</strong> Airtribe</p>
-            <p><strong>Year:</strong> 2026</p>
-            <p>
-              Hands-on Product Management program covering research, problem
-              framing, prioritization, PRDs, strategy, prototypes, and metrics.
-            </p>
-            <p class="small-note">
-              Certificate of completion; this is a course certification,
-              not a claim of previous Product Manager employment.
-            </p>
-            <a href="assets/images/airtribe-certificate.png"
-               target="_blank" rel="noopener noreferrer">
-              View certificate image ↗
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
+<section class="section" id="contact">
+<div class="container">
+<div class="contact-panel">
+<div class="section-heading"><h2>Contact</h2><p>Connect to discuss product opportunities, case studies, and collaboration.</p></div>
+<div class="contact-links">
+<a href="mailto:sandhyapuladas@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+<a href="https://github.com/puladassandhya" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.9a3.4 3.4 0 0 0-.9-2.7c3-.3 6.1-1.5 6.1-6.7a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6S17.5 1.2 15 3a13.2 13.2 0 0 0-7 0C5.5 1.2 4.3 1.5 4.3 1.5a4.8 4.8 0 0 0-.1 3.6A5.2 5.2 0 0 0 2.8 8.7c0 5.2 3.1 6.4 6.1 6.7A3.4 3.4 0 0 0 8 18.1V22"/></svg>GitHub ↗</a>
+<a href="https://www.linkedin.com/in/sandhya-priyanka-96737687/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn ↗</a>
+</div>
+</div>
+</div>
+</section>
+</main>
 
-    <section id="experience">
-      <div class="container">
-        <h2>Experience and education</h2>
-        <p class="section-intro">
-          My professional background combines Business Analysis, academia,
-          and hands-on product ownership.
-        </p>
+<footer><div class="container">© <span id="year"></span> Product Management Portfolio</div></footer>
 
-        <div class="experience-grid">
-          <article class="card">
-            <h3>Founder and Product Owner — Elim Foods</h3>
-            <p><strong>November 2025 – Present</strong></p>
-            <p>
-              Own the value proposition, pricing, launch, customer feedback,
-              and improvement roadmap for a small food venture offering
-              handcrafted, preservative-free products. Resume-reported
-              results include 50+ delivered orders.
-            </p>
-          </article>
+<script>
+(function(){
+const root=document.documentElement;
+const btn=document.getElementById('themeToggle');
+const label=document.getElementById('themeLabel');
 
-          <article class="card">
-            <h3>Senior Business Analyst — SoulPage IT Solutions Pvt Ltd</h3>
-            <p><strong>February 2024 – July 2025</strong></p>
-            <p>
-              Worked on business needs assessments, stakeholder and client
-              communication, requirements documentation, product planning,
-              and user acceptance testing.
-            </p>
-            <p class="small-note">
-              This is work experience, not a portfolio project.
-            </p>
-          </article>
+function setTheme(theme){
+root.setAttribute('data-theme',theme);
+label.textContent=theme==='dark'?'Light mode':'Dark mode';
+btn.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');
+}
 
-          <article class="card">
-            <h3>Assistant Professor / Business Analyst — Sreenidhi Institute of Science and Technology</h3>
-            <p><strong>January 2023 – August 2023</strong></p>
-            <p>
-              Worked with stakeholder requirements, user stories, acceptance
-              criteria, JIRA backlogs, prioritization, and sprint planning.
-            </p>
-          </article>
+const saved=localStorage.getItem('portfolio-theme');
+if(saved==='light'||saved==='dark'){
+setTheme(saved);
+}else{
+label.textContent=window.matchMedia('(prefers-color-scheme: dark)').matches?'Light mode':'Dark mode';
+}
 
-          <article class="card">
-            <h3>Assistant Professor / Business Analyst — Malla Reddy Group of Institutions</h3>
-            <p><strong>October 2017 – January 2023</strong></p>
-            <p>
-              Worked on enterprise analysis, business cases, stakeholder
-              analysis, requirements documentation, UML diagrams, wireframes,
-              traceability, and UAT.
-            </p>
-          </article>
+btn.addEventListener('click',()=>{
+const current=root.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+const next=current==='dark'?'light':'dark';
+setTheme(next);
+localStorage.setItem('portfolio-theme',next);
+});
 
-          <article class="card">
-            <h3>Program in AI-First Product Management</h3>
-            <p><strong>Airtribe • 2026</strong></p>
-            <p>
-              Hands-on program with product case studies and an OutLoud
-              capstone project.
-            </p>
-          </article>
+document.getElementById('year').textContent=new Date().getFullYear();
 
-          <article class="card">
-            <h3>Education</h3>
-            <p><strong>M.Tech, Computer & Communication Engineering</strong><br>
-              Karunya University • 2013–2015</p>
-            <p><strong>B.Tech</strong><br>
-              G Pulla Reddy Engineering College, Kurnool • 2009–2013</p>
-          </article>
-        </div>
-      </div>
-    </section>
+const icons={
+activity:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+'shopping-cart':'<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/>',
+'map-pin':'<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+layers:'<path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5"/>',
+bus:'<path d="M8 6v6m8-6v6M4 12h16M5 3h14a2 2 0 0 1 2 2v13H3V5a2 2 0 0 1 2-2Z"/><path d="M7 18v3m10-3v3M7 15h.01M17 15h.01"/>',
+sparkles:'<path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z"/><path d="m19 14 1.2 2.8L23 18l-2.8 1.2L19 22l-1.2-2.8L15 18l2.8-1.2L19 14Z"/>',
+globe:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>',
+'chart-no-axes-combined':'<path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/>',
+bot:'<rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 8V4m-2 0h4M8 13h.01M16 13h.01M9 17h6"/>',
+'graduation-cap':'<path d="m2 10 10-5 10 5-10 5-10-5Z"/><path d="M6 12v5c4 3 8 3 12 0v-5M22 10v6"/>',
+'file-text':'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/>',
+mic:'<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5m-4 0h8"/>'
+};
 
-    <section id="contact">
-      <div class="container">
-        <div class="contact-panel">
-          <h2>Let’s connect</h2>
-          <p class="section-intro">
-            I’m looking for opportunities to contribute to product discovery,
-            execution, and growth while continuing to develop as an Associate
-            Product Manager or Product Manager.
-          </p>
-          <div class="contact-links">
-            <a class="button button-primary"
-               href="mailto:sandhyapuladas@gmail.com">✉ Email me</a>
-            <a class="button button-secondary"
-               href="https://www.linkedin.com/in/sandhya-priyanka-96737687/"
-               target="_blank" rel="noopener noreferrer">in LinkedIn</a>
-            <a class="button button-secondary"
-               href="https://github.com/puladassandhya"
-               target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          </div>
-          <p class="small-note" style="margin-top:20px">
-            Portfolio content is based on my resume and project work.
-            Case-study pages and downloadable project documents will be linked
-            as their files are added.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Sandhya Priyanka</span>
-      <span>Product Management Portfolio</span>
-      <a href="#home">Back to top ↑</a>
-    </div>
-  </footer>
-
-  <script>
-    const root = document.documentElement;
-    const toggle = document.getElementById("themeToggle");
-    const icon = document.getElementById("themeIcon");
-    const label = document.getElementById("themeLabel");
-
-    function updateThemeButton() {
-      const isDark = root.dataset.theme === "dark";
-      icon.textContent = isDark ? "☀" : "☾";
-      label.textContent = isDark ? "Light mode" : "Dark mode";
-      toggle.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light theme" : "Switch to dark theme"
-      );
-    }
-
-    toggle.addEventListener("click", () => {
-      const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
-      root.dataset.theme = nextTheme;
-      localStorage.setItem("portfolio-theme", nextTheme);
-      updateThemeButton();
-    });
-
-    const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    themeMedia.addEventListener?.("change", event => {
-      if (!localStorage.getItem("portfolio-theme")) {
-        root.dataset.theme = event.matches ? "dark" : "light";
-        updateThemeButton();
-      }
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-    updateThemeButton();
-  </script>
+document.querySelectorAll('[data-icon]').forEach(el=>{
+const name=el.getAttribute('data-icon');
+if(icons[name]){
+el.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">'+icons[name]+'</svg>';
+}
+});
+})();
+</script>
 </body>
 </html>
